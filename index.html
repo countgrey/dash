@@ -9,112 +9,11 @@
 
 
 	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://apis.google.com/js/api.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="hist.js"></script>
 
-
-	<style>
-		body
-		{
-			background: #18191e;
-			padding: 6px;
-		}
-
-		.gridBox
-		{
-			padding-top: 10px;
-			display: grid; 
-			width: 100%;
-  			grid-template-columns: repeat(auto-fit, minmax(33%, 3fr));	
-  			gap: 8px 8px; 
-		}
-
-
-		.gridComponent
-		{
-			box-shadow: 3px 3px black;
-			border-radius: 10px;
-			width:100%;
-			height:390px;
-			border: 0.5px solid black;
-			background: #25272f;
-			transition: transform .2s;
-			padding-bottom: 10px;
-		}
-
-		.gridComponent .title
-		{
-			color: '#ffffff';
-			font-weight: bold;
-			align-self: center;
-			text-align: center;
-			height: 50px;
-		}
-
-		.gridComponent:hover 
-		{
-		      transform: scale(1.05);
-		      border-color: darkblue;
-		}
-
-		.title
-		{
-			background: #25272f;
-			
-			border: 1px solid black;
-			border-radius: 10px;
-			color: #ffffff;
-			font-family: 'Helvetica Neue', sans-serif; font-size: 1em;
-			font-weight: bold;
-			letter-spacing: -1px;
-			line-height: 0.2;
-			text-align: center;		
-		}
-
-		.mainTitle
-		{
-			background: #25272f;
-			height: 80px;
-			border: 1px solid black;
-			border-radius: 10px;
-			color: #ffffff;
-			font-family: 'Helvetica Neue', sans-serif; font-size: 1.5em;
-			font-weight: bold;
-			letter-spacing: -1px;
-			line-height: 0.2;
-			text-align: left;
-			display: flex;
-		    flex-direction: row;
-
-		}
-
-
-		.gridComponent .kpi
-		{
-			font-weight: bold;
-			color: #ffffff;
-			height: 28px;
-			font-family: 'Helvetica Neue', sans-serif;
-			font-size: 1.25em;
-			padding-top: 10px;
-			display: flex;
-		    flex-direction: row;
-		    justify-content: space-between;
-		}
-
-		.gridComponent .kpi .kpiText
-		{
-			text-align: left;
-			margin-left: 20px;
-		}
-
-		.gridComponent .kpi .kpiValue
-		{
-			
-		}
-
-
-		
-	</style>
+	<link rel="stylesheet" href="style.css">
 
 
 </head>

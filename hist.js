@@ -1,6 +1,14 @@
 var dataOfHistogram = [1, 1, 1, 20, 1, 1, 1, 10, 15, 12, 12, 11];
 var categoriesOfHistogram = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+
+
+
+
+
+
+
+
 var economCountBud = 0;
 var itCountBud = 0;
 var creativeCountBud = 0;
@@ -25,32 +33,6 @@ Highcharts.setOptions({
     }
 });
 
-gapi.load('client', initGoogleSheetsAPI);
-		
-		console.log("Init")
-        function initGoogleSheetsAPI() {
-            gapi.client.init({
-                apiKey: 'AIzaSyBQbr3KeiNMBeadWBeamUZeNnTLtPJ9vdw',
-                discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-            }).then(function() {
-                // Fetch data from Google Sheets
-                gapi.client.sheets.spreadsheets.values.get({
-                    spreadsheetId: '1gkRFEOa0eiXl2o99LuzKU5G_d7xIkAMhfyCbYvIMDg0',
-                    range: 'Sheet1!B1:J64' // Adjust the range as per your data
-                }).then(function(response) {
-                    var data = response.result.values;
-                    console.log(data);
-                    // Convert fetched data to the format Highcharts expects
-                    var chartData = [];
-                    for (var i = 1; i < data.length; i++) {
-                        chartData.push({
-                            name: data[i][0],
-                            y: parseFloat(data[i][1])
-                        });
-                    }
-				});
-            });
-        }
 
 var kpiFinans = new Highcharts.Chart({
     chart: {
@@ -61,14 +43,7 @@ var kpiFinans = new Highcharts.Chart({
     "lineWidth": 0,
     "title": {
         "text": "",
-        "style": {
-            "align": "center",
-            "color": "rgba(0,0,0,1)",
-            "fontFamily": "Arial",
-            "fontSize": "14px",
-            "fontWeight": "normal",
-            "fontStyle": "normal"
-        }
+        
     },
     "labels": {
         "enabled": true,

@@ -2,7 +2,7 @@
 var prepodsPie	= new Highcharts.Chart({
     chart: {
         renderTo: 'PrepodsPie',
-        type: "pie"
+        type: "pie",
     },
     title: {
     	text: "",

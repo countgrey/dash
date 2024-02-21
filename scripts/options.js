@@ -10,6 +10,6 @@ Highcharts.setOptions({
         borderWidth: 0,
         plotBackgroundColor: 'rgba(255, 255, 255, 0)',
         plotShadow: true,
-        plotBorderWidth: 1,
+        
     }
 });

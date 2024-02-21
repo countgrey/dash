@@ -9,8 +9,27 @@
 			padding-top: 10px;
 			display: grid; 
 			width: 100%;
-  			grid-template-columns: repeat(auto-fit, minmax(33%, 3fr));	
+  			grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));	
   			gap: 8px 8px; 
+		}
+
+		@media screen and (max-width: 800px) {
+		    .gridBox {
+		        grid-template-columns: repeat(auto-fill, minmax(66%, 1fr));
+		    }
+		}
+
+		@media screen and (max-width: 550px) {
+		    .gridBox {
+		        grid-template-columns: repeat(auto-fill, 100%);
+		    }
+		    .mainTitle h1
+			{
+				font-size: 1.2em;
+				align-self: center;
+
+			}	
+
 		}
 
 		.gridBox a

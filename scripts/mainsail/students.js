@@ -22,8 +22,8 @@ function getStudentsData()
                 for (var i = 1; i < data.values.length; i++)
                 {
                     groups.push(data.values[i][0]);
-                    commercials.push(data.values[i][2]);
-                    budget.push(data.values[i][1]);
+                    commercials.push(data.values[i][3]);
+                    budget.push(data.values[i][2]);
                 }
 
                 var divisions = 

@@ -35,16 +35,19 @@ var prepodsPie	= new Highcharts.Chart({
                     "fontSize": "14px",
                     "fontWeight": "bold",
                     "fontStyle": "normal",
-                    "textOverflow": "none"
+                    "textOverflow": "none",
+
                 },
                 "enabled": false,
-                "distance": -12
+                
+                
             },
             "size": "90%",
             "innerSize": "50%",
             "showInLegend": true,
             "animation": true,
-            "borderWidth": 0
+            "borderWidth": 0,
+
         }
     },
 

@@ -2,6 +2,8 @@
 		{
 			background: #18191e;
 			padding: 6px;
+			font-family: 'Helvetica Neue', sans-serif;
+			color: whitesmoke;
 		}
 
 		.gridBox
@@ -119,4 +121,30 @@
 		.gridComponent .kpi .kpiValue
 		{
 			
+		}
+
+		.coolTable {
+		    width: 100%;
+		    border-collapse: collapse;
+		    border: 2px solid #ddd;
+		}
+
+		.coolTable th, .coolTable td {
+		    border: 1px solid #ddd;
+		    padding: 8px;
+		    height: 50px;
+		    text-align: left;
+		}
+
+		.coolTable th {
+		    background-color: #f2f2f2;
+		    color: #333;
+		}
+
+		.coolTable tr:nth-child(even) {
+		    background-color: #black;
+		}
+
+		.coolTable tr:hover {
+		    background-color: #ddd;
 		}

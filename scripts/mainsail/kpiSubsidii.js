@@ -25,7 +25,6 @@ fetch(url)
     .catch(error => console.error('Error fetching data:', error));
 
 
-
 range = '2024 год!E21:E23';
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 fetch(url)
@@ -33,8 +32,6 @@ fetch(url)
     .then(data => 
     {
         //console.log(data);
-
-        
 
         let sum = 0;
         for (let i = 1; i < data.values.length; i++) {
@@ -47,6 +44,7 @@ fetch(url)
     .catch(error => console.error('Error fetching data:', error));
 
 
+
 range = '2024 год!D21:D23';
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 fetch(url)
@@ -55,7 +53,7 @@ fetch(url)
     {
         //console.log(data);
 
-       
+        
 
         let sum = 0;
         for (let i = 1; i < data.values.length; i++) {

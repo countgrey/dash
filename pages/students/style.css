@@ -22,8 +22,9 @@ body
         }
 .column1
         {
+
             margin-right: 8px;
-           height: 100% ;
+           height: 103% ;
            flex-basis: 33%;
            
         }
@@ -36,6 +37,7 @@ body
 
 .cell
         {
+            position: relative;
             box-shadow: 3px 3px black;
             border-radius: 10px;
             width:100%;
@@ -47,12 +49,13 @@ body
         }
 .column2 .cell
         {
+            overflow: auto;
             height: 104%;
         }
 
 .container 
         {
-            height: 83vh;
+            height: 86vh;
             display: flex;
         }
 #kpi    {
@@ -61,7 +64,7 @@ body
 
 .title
         {
-            padding: 10px;
+            padding: 15px;
             background: #25272f;
             border: 1px solid black;
             border-radius: 10px;
@@ -73,4 +76,141 @@ body
             text-align: center;
 
         }
-        
+#kpi {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #ffffff;
+    font-size: 1.85em;
+    line-height: 7vh;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.kpi-item {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+.kpitext {
+    flex: 0 0 auto; /* Автоматический размер для метки */
+    margin-right: 10px; /* Добавление отступа между меткой и значением */
+}
+
+.kpivalue {
+    flex: 0 0 auto; /* Автоматический размер для значения */
+}
+
+.custom-loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#546C9D 94%,#0000) top/4px 4px no-repeat,
+    conic-gradient(#0000 30%,#546C9D);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+  animation:s3 1s infinite linear;
+}
+
+@keyframes s3{ 
+  100%{transform: rotate(1turn)}
+}
+
+#charttrobber{
+  width: 50px;
+  height: 50px;
+background: 
+    radial-gradient(farthest-side,#546C9D 94%,#0000) top/10px 10px no-repeat,
+    conic-gradient(#0000 30%,#546C9D);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 10px),#000 0);
+  position: absolute; /* Располагаем абсолютно внутри ячейки */
+  top: 45%; /* Располагаем относительно верхнего края ячейки */
+  left: 45%; /* Располагаем относительно левого края ячейки */
+}
+
+* {
+    box-sizing: border-box; /* Включаем границы и отступы в размеры элементов */
+}
+
+
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #4E5364 #25272F;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #25272F;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #25272F;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #25272F;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #4E5364;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #696F86;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #767D97;
+}
+
+
+table {
+            padding: 5px;
+            padding-bottom: 10;
+           width: 100%;
+    }
+    th {
+        font-size: 35px;
+        border-bottom: 0.3px solid #48494d;
+        background:#24272e;
+        color:#898b92;
+        font-weight:normal;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    td {
+        font-size: 25px;
+        border-bottom: 0.3px solid #48494d;
+        color:#b3b6bd;
+        font-weight:normal;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    .top {
+        position:sticky;
+        top:0px;
+    }
+    td:nth-child(2),
+    td:nth-child(3),
+    td:nth-child(4) {
+        text-align: right;
+    }
+    td:nth-child(1){
+        text-align: center;
+    }
+    td:nth-child(2){
+        width: 27%;
+    }
+     /*.unit {
+        font-size: 14px; 
+        font-style: italic;
+    }
+    .total-row {
+        position: sticky;
+        bottom: 0; 
+        background-color: #24272e; 
+    }*/

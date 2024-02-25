@@ -11,6 +11,38 @@ function getStudentsData()
         var series_ = [];
 
         fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        var tableBody = document.querySelector('#studentsTable tbody');
+
+        // Очищаем содержимое таблицы перед заполнением новыми данными
+        tableBody.innerHTML = '';
+
+        for (var i = 1; i < data.values.length; i++) {
+            var row = document.createElement('tr');
+            var rowData = data.values[i];
+
+            // Создаем ячейки для каждого столбца данных
+            for (var j = 0; j < rowData.length; j++) {
+                var cell = document.createElement('td');
+                cell.textContent = rowData[j];
+                row.appendChild(cell);
+            }
+
+            // Добавляем строку в таблицу
+            tableBody.appendChild(row);
+        }
+        
+        hideChartTrobbler();
+
+    })
+    .catch(error => {
+        console.error('Ошибка при загрузке данных:', error);
+    });
+
+
+
+        fetch(url)
             .then(response => response.json())
             .then(data => {
                 //console.log(data);
@@ -73,11 +105,12 @@ function getStudentsData()
                 }
                 var allBud = economCountBud + itCountBud + creativeCountBud;
                 var allCom = economCountCom + itCountCom + creativeCountCom;
-                console.log('allBud:', allBud);
-                console.log('allCom:', allCom);
+                document.getElementById('totalStudents').innerText = allBud + allCom;
+                document.getElementById('budgetStudents').innerText = allBud;
+                document.getElementById('commercialStudents').innerText = allCom;
 
                 var series_ = [{
-                                name: 'Percentage',
+                                name: 'Количество',
                                 data: [
                                 {
                                     name: 'Бюджет',
@@ -148,4 +181,14 @@ function getStudentsData()
 }
 getStudentsData();
 
+// Функция для скрытия элементов с id "charttrobber"
+function hideChartTrobbler() {
+    // Получаем все элементы с id "charttrobber"
+    var chartTrobblerElements = document.querySelectorAll('#charttrobber');
+
+    // Проходимся по каждому элементу и скрываем его
+    chartTrobblerElements.forEach(function(element) {
+        element.style.display = 'none';
+    });
+}
 

@@ -20,16 +20,23 @@
         <div class="container">
         <div class="column1">
             <div class="cell" id="kpi">
-                <div class="kpitext">Студентов всего:</div>
-                <div class="kpivalue">1600</div>
-                <div class="kpitext">Студентов на бюджете:</div>
-                <div class="kpivalue">1600</div>
-                <div class="kpitext">Студентов на коммерции:</div>
-                <div class="kpivalue">1600</div>
+                <div class="kpi-item">
+                    <div class="kpitext">Студентов всего: </div>
+                    <div class="kpivalue" id="totalStudents"><div class="custom-loader"></div></div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpitext">Студентов на бюджете: </div>
+                    <div class="kpivalue" id="budgetStudents"><div class="custom-loader"></div></div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpitext">Студентов на коммерции: </div>
+                    <div class="kpivalue" id="commercialStudents"><div class="custom-loader"></div></div>
+                </div>
             </div>
+
             <div class="cell">
                 <div class="title">Соотношение студентов</div>
-                <div id="studentsPie" style=" width: 100%; height: 100%;"><script src="..\..\scripts\students.js"></script></div>
+                <div id="studentsPie" style=" width: 100%; height: 92%;"><div id="charttrobber" class="custom-loader"></div><script src="..\..\scripts\students.js"></script></div>
             </div>
             <div class="cell">
                 3
@@ -37,7 +44,20 @@
         </div>
         <div class="column2">
             <div class="cell">
-
+                <table id="studentsTable" class="students-table">
+                    <thead>
+                        <tr class="top">
+                            <th>Группа</th>
+                            <th>Всего студентов</th>
+                            <th>Бюджет</th>
+                            <th>Коммерция</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div id="charttrobber" class="custom-loader">
+                        <!-- Здесь будут заполнены данные из скрипта -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

@@ -11,7 +11,6 @@ function getStudentsData()
         var series_ = [];
 
         fetch(url)
-<<<<<<< HEAD
     .then(response => response.json())
     .then(data => {
         var tableBody = document.querySelector('#studentsTable tbody');
@@ -44,8 +43,6 @@ function getStudentsData()
 
 
         fetch(url)
-=======
->>>>>>> b31ed7e8bcbd77648292ac7c5d6ecc1e7dd7a78c
             .then(response => response.json())
             .then(data => {
                 //console.log(data);
@@ -108,20 +105,12 @@ function getStudentsData()
                 }
                 var allBud = economCountBud + itCountBud + creativeCountBud;
                 var allCom = economCountCom + itCountCom + creativeCountCom;
-<<<<<<< HEAD
                 document.getElementById('totalStudents').innerText = allBud + allCom;
                 document.getElementById('budgetStudents').innerText = allBud;
                 document.getElementById('commercialStudents').innerText = allCom;
 
                 var series_ = [{
                                 name: 'Количество',
-=======
-                console.log('allBud:', allBud);
-                console.log('allCom:', allCom);
-
-                var series_ = [{
-                                name: 'Percentage',
->>>>>>> b31ed7e8bcbd77648292ac7c5d6ecc1e7dd7a78c
                                 data: [
                                 {
                                     name: 'Бюджет',
@@ -192,7 +181,7 @@ function getStudentsData()
 }
 getStudentsData();
 
-<<<<<<< HEAD
+
 // Функция для скрытия элементов с id "charttrobber"
 function hideChartTrobbler() {
     // Получаем все элементы с id "charttrobber"
@@ -203,6 +192,5 @@ function hideChartTrobbler() {
         element.style.display = 'none';
     });
 }
-=======
->>>>>>> b31ed7e8bcbd77648292ac7c5d6ecc1e7dd7a78c
+
 

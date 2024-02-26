@@ -119,6 +119,7 @@
 			display: flex;
 		    flex-direction: row;
 		    justify-content: space-between;
+		    align-items: flex-end
 		}
 
 		.gridComponent .kpi .kpiText
@@ -239,4 +240,10 @@ table {
     }
     #date {
     position: absolute;
+}
+
+#fixTrobber {
+	position: absolute;
+	left: -20px;
+    top: 8px;
 }

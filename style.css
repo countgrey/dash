@@ -50,6 +50,17 @@
 			background: #25272f;
 			transition: transform .2s;
 			padding-bottom: 10px;
+			animation: cardEnter 0.2s ease 0s 1 normal none;
+		}
+
+		@keyframes cardEnter {
+		  0% {
+			transform: scaleX(0.4);
+		  }
+
+		  100% {
+			transform: scaleX(1);
+		  }
 		}
 
 		.gridComponent .title

@@ -129,22 +129,109 @@
 		    border: 2px solid #ddd;
 		}
 
-		.coolTable th, .coolTable td {
-		    border: 1px solid #ddd;
-		    padding: 8px;
-		    height: 50px;
-		    text-align: left;
-		}
+.custom-loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#546C9D 94%,#0000) top/4px 4px no-repeat,
+    conic-gradient(#0000 30%,#546C9D);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+  animation:s3 1s infinite linear;
+}
 
-		.coolTable th {
-		    background-color: #f2f2f2;
-		    color: #333;
-		}
+@keyframes s3{ 
+  100%{transform: rotate(1turn)}
+}
 
-		.coolTable tr:nth-child(even) {
-		    background-color: #black;
-		}
+#charttrobber{
+  width: 50px;
+  height: 50px;
+background: 
+    radial-gradient(farthest-side,#546C9D 94%,#0000) top/10px 10px no-repeat,
+    conic-gradient(#0000 30%,#546C9D);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 10px),#000 0);
+  position: absolute; /* Располагаем абсолютно внутри ячейки */
+  top: 45%; /* Располагаем относительно верхнего края ячейки */
+  left: 45%; /* Располагаем относительно левого края ячейки */
+}
 
-		.coolTable tr:hover {
-		    background-color: #ddd;
-		}
+* {
+    box-sizing: border-box; /* Включаем границы и отступы в размеры элементов */
+}
+
+
+
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #4E5364 #25272F;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #25272F;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #25272F;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #25272F;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #4E5364;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #696F86;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #767D97;
+}
+
+
+table {
+            padding: 5px;
+            padding-bottom: 10;
+           width: 100%;
+    }
+    th {
+        font-size: 35px;
+        border-bottom: 0.3px solid #48494d;
+        background:#24272e;
+        color:#898b92;
+        font-weight:normal;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    td {
+        font-size: 25px;
+        border-bottom: 0.3px solid #48494d;
+        color:#b3b6bd;
+        font-weight:normal;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    .top {
+        position:sticky;
+        top:0px;
+    }
+    td:nth-child(2),
+    td:nth-child(3),
+    td:nth-child(4) {
+        text-align: right;
+    }
+    td:nth-child(1){
+        text-align: center;
+    }
+    td:nth-child(2){
+        width: 27%;
+    }

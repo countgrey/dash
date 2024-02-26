@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box; /* Включаем границы и отступы в размеры элементов */
+}
 .column1
         {
 
@@ -13,6 +16,9 @@
             height: 100%;
         }
 
+/*.custom-loader {
+    margin-top: 23px;
+}*/
 
 .cell
         {

@@ -69,7 +69,7 @@
 			font-weight: bold;
 			align-self: center;
 			text-align: center;
-			height: 50px;
+			height: 20px;
 		}
 
 		.gridComponent:hover 
@@ -112,7 +112,7 @@
 		{
 			font-weight: bold;
 			color: #ffffff;
-			height: 28px;
+			height: 20px;
 			font-family: 'Helvetica Neue', sans-serif;
 			font-size: 1.25em;
 			padding-top: 10px;
@@ -129,7 +129,7 @@
 
 		.gridComponent .kpi .kpiValue
 		{
-			
+			position: relative;
 		}
 
 .custom-loader {
@@ -158,10 +158,9 @@ background:
   top: 45%; /* Располагаем относительно верхнего края ячейки */
   left: 45%; /* Располагаем относительно левого края ячейки */
 }
-
+/*
 * {
     box-sizing: border-box; /* Включаем границы и отступы в размеры элементов */
-}
 
 
 
@@ -238,3 +237,6 @@ table {
     td:nth-child(2){
         width: 27%;
     }
+    #date {
+    position: absolute;
+}

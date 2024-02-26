@@ -40,11 +40,11 @@
 
 .container 
         {
-            height: 86vh;
+            height: 90vh;
             display: flex;
         }
 #kpi    {
-            height: 25%;
+            height: 20%;
         }
 
 /*.title
@@ -62,7 +62,6 @@
 
         }*/
 #kpi {
-    padding-left: 15px;
     display: flex;
     flex-direction: column; /* Отображать элементы в столбец */;
     color: #ffffff;
@@ -78,6 +77,8 @@
             align-self: center;
             text-align: center;
             height: 50px;
+            width: 100%;
+            padding: 20px;
 }
 
 .kpi-item {
@@ -88,7 +89,7 @@
 .kpitext {
     flex: 1;
     text-align: left;
-    margin-right: 10px; /* Добавление отступа между меткой и значением */
+    margin-left: 10px; /* Добавление отступа между меткой и значением */
 }
 
 .kpivalue {

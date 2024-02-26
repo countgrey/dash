@@ -1,0 +1,35 @@
+table {
+            padding: 1px;
+            padding-bottom: 0px;
+            width: 100%;
+}
+th {
+    font-size: 1em;
+
+}
+
+td {
+
+    font-size: 1em;
+
+}
+
+
+
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: center;
+
+}
+td:nth-child(1){
+    text-align: center;
+    width: 10%;
+}
+td:nth-child(2){
+    width: 30%;
+}
+
+#date {
+	position: absolute;
+}

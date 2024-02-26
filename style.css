@@ -215,14 +215,14 @@ table {
         border-bottom: 0.3px solid #48494d;
         background:#24272e;
         color:#898b92;
-        font-weight:normal;
+        font-weight:bold;
         font-family: 'Helvetica Neue', sans-serif;
     }
     td {
         font-size: 25px;
         border-bottom: 0.3px solid #48494d;
         color:#b3b6bd;
-        font-weight:normal;
+        font-weight:bold;
         font-family: 'Helvetica Neue', sans-serif;
     }
     .top {
@@ -232,7 +232,7 @@ table {
     td:nth-child(2),
     td:nth-child(3),
     td:nth-child(4) {
-        text-align: right;
+        text-align: center;
     }
     td:nth-child(1){
         text-align: center;

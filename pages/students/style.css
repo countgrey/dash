@@ -70,12 +70,14 @@
 }
 
 .kpitext {
-    flex: 0 0 auto; /* Автоматический размер для метки */
+    flex: 1;
+    text-align: left;
     margin-right: 10px; /* Добавление отступа между меткой и значением */
 }
 
 .kpivalue {
     flex: 0 0 auto; /* Автоматический размер для значения */
     text-align: right;
+    padding-right: 1%;
 }
 

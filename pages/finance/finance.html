@@ -11,11 +11,13 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
+
     <script src="../../scripts/options.js"></script>
 
 	<link rel="stylesheet" href="..\..\style.css">
 	<link rel="stylesheet" href="style.css">
 	<link type="image/x-icon" href="https://oksei.ru/public/img/logo.png" rel="icon">
+	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
 
 	<style>
@@ -51,30 +53,30 @@
 				<script src="../scripts/mainsail/kpiSubsidii.js"></script>
 	    		<div class="title"><h2>Показатели</h2></div>
 	    		<div class="kpi" style="padding: 1px; margin-top: 0px;">
-	    			<div class="kpiText" style="padding: 0px; margin: 0px; align-self: center;">По субсидиям</div>
+	    			<div class="kpiText" style="padding: 0px; margin-left: 5px; align-self: center;">По субсидиям</div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Доход: </div>
-	    			<div class="kpiValue"><span id="amountOfDohod"><div class="custom-loader"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
+	    			<div class="kpiValue"><span id="amountOfDohod"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Расход: </div>
-	    			<div class="kpiValue"><span id="amountOfRashod"><div class="custom-loader"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
+	    			<div class="kpiValue"><span id="amountOfRashod"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Остаток: </div>
-	    			<div class="kpiValue"><span id="amountOfOstatok"><div class="custom-loader"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #808080; vertical-align: up;">●&nbsp;&nbsp;</span><br><span id="date" style="font-size: 10px; color: rgb(196,193,193);"></span></div>
+	    			<div class="kpiValue"><span id="amountOfOstatok"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #808080; vertical-align: up;">●&nbsp;&nbsp;</span><br><span id="date" style="font-size: 10px; color: rgb(196,193,193);"></span></div>
 	    		</div>
-	    		<div class="kpi" style="padding: 1px; margin-top: 0px; align-items: center;">
-	    			<div class="kpiText" style="padding: 0px; margin: 0px; align-items: center;">Колледж</div>
+	    		<div class="kpi" style="padding: 1px; margin-top: 10px; align-items: center;">
+	    			<div class="kpiText" style="padding: 0px; margin-left: 5px; align-items: center;">Колледж</div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Доход: </div>
-	    			<div class="kpiValue"><span id="dohod"><div class="custom-loader"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
+	    			<div class="kpiValue"><span id="dohod"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Расход: </div>
-	    			<div class="kpiValue"><span id="rashod"><div class="custom-loader"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
+	    			<div class="kpiValue"><span id="rashod"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #14AE5C; vertical-align: up;">●&nbsp;&nbsp;</span><span></span></div>
 	    		</div>
 	    	</div>
 	    	<div id="container2" class="gridComponent">
@@ -86,11 +88,64 @@
 	    		<div class="cool-table" id="table-container-inie"></div>
 	    	</div>
 	    	<div id="container4" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
+	    		<div class="title"><h2>Субсидии</h2></div>
+	    		<div id="subsidii-dohod-pie" style="height: 250px;margin-top: 30px;"><script src="../../scripts/finance/subsidii_pie.js"></script></div>
 	    	</div>
+
 	    	<div id="container5" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
+	    		<div class="title"><h2>Долги по группам</h2></div>
+	    		<script src="../../scripts/finance/dolgi_kommunalka.js"></script>
+	    		<!--
+		    		<button class="btn" id="btn">
+					  Dropdown
+					  <i class="bx bx-chevron-down" id="arrow"></i>
+					</button>
+						<div class="dropdown" id="dropdown">
+						  <a href="#create">
+						    <i class="bx bx-plus-circle"></i>
+						    Create New
+						  </a>
+						  <a href="#draft">
+						    <i class="bx bx-book"></i>
+						    All Drafts
+						  </a>
+						  <a href="#move">
+						    <i class="bx bx-folder"></i>
+						    Move To
+						  </a>
+						  <a href="#profile">
+						    <i class="bx bx-user"></i>
+						    Profile Settings
+						  </a>
+						  <a href="#notification">
+						    <i class="bx bx-bell"></i>
+						    Notification
+						  </a>
+						  <a href="#settings">
+						    <i class="bx bx-cog"></i>
+						    Settings
+						  </a>
+						</div>
+					-->
+	    		<div class="kpi">
+	    			<div class="kpiText">Обучение основное: </div>
+	    			<div class="kpiValue"><span id="edu-main"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    		</div>
+	    		<div class="kpi">
+	    			<div class="kpiText">Обучение дополнительное: </div>
+	    			<div class="kpiValue"><span id="edu-dop"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    		</div>
+	    		<div class="kpi">
+	    			<div class="kpiText">Проживание в общежитии: </div>
+	    			<div class="kpiValue"><span id="edu-obshaga"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    		</div>
+	    		<div class="kpi">
+	    			<div class="kpiText">Итого: </div>
+	    			<div class="kpiValue"><span id="total"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    		</div>
 	    	</div>
+
+
 	    	<div id="container6" class="gridComponent">
 	    		<div class="title"><h2></h2></div>
 	    	</div>

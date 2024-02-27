@@ -14,6 +14,18 @@ fetch(url)
     .catch(error => console.error('Error fetching data:', error));
 
 
+range = '2024 год!H37'
+url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+fetch(url)
+    .then(response => response.json())
+    .then(data => 
+    {
+        document.getElementById("rashod").innerHTML = data.values[0];
+        
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+
 
 range = '2024 год!B20:F23'
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;

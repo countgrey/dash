@@ -4,9 +4,9 @@
 .column1
         {
 
-            margin-right: 8px;
-           height: 135% ;
-           flex-basis: 35%;
+           margin-right: 8px;
+           height: 100% ;
+           flex-basis: 60%;
            
         }
 
@@ -26,7 +26,7 @@
             box-shadow: 3px 3px black;
             border-radius: 10px;
             width:100%;
-            height: 37.4%;
+            height: 40%;
             border: 0.5px solid black;
             background: #25272f;
             padding-bottom: 10px;
@@ -38,7 +38,7 @@
 .column2 .cell
         {
             overflow: auto;
-            height: 104%;
+            height: 97.9%;
         }
 
 .container 
@@ -46,30 +46,61 @@
             height: 90vh;
             display: flex;
         }
-#kpi    {
-            height: 20%;
-        }
 
-.title
+/*.title
         {
             padding: 15px;
             background: #25272f;
             border: 1px solid black;
             border-radius: 10px;
             color: #ffffff;
-            font-family: 'Helvetica Neue', sans-serif; 
-            font-size: 1em;
+            font-family: 'Helvetica Neue', sans-serif; font-size: 1.5em;
             font-weight: bold;
             letter-spacing: -1px;
             line-height: 0.2;
             text-align: center;
 
-        }
-#kpi {
+        }*/
+
+#chart1 {
+    height: 24%;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #25272f;
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+#chart2 {
+    height: 24%;
     display: flex;
     flex-direction: column; /* Отображать элементы в столбец */;
     color: #ffffff;
-    font-size: 1.5em;  
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+#chart3 {
+    height: 24%;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #ffffff;
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+#chart4 {
+    height: 24%;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #ffffff;
+    font-size: 1.5em;
     line-height: 30px;
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: bold;
@@ -102,3 +133,52 @@
     padding-right: 1%;
 }
 
+.mainTitle
+        {
+            background: #25272f;
+            height: 80px;
+            border: 1px solid black;
+            border-radius: 10px;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', sans-serif; font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 0.2;
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+
+        }
+ td{
+
+    height: 50px;
+    font-size: 10px;
+    
+}
+.perssonale-table{
+
+    height: 90px;
+    font-size: 12px;
+}
+
+.perssonale-table th{
+
+    font-size: 30px;
+}
+    .perssonale-table td {
+
+            font-size: 20px;
+    }
+
+.PrepodPie {
+
+width: 70%;
+height: 70%;
+
+}
+
+//**#pie {
+
+height: 90%;
+
+}**//

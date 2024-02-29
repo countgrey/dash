@@ -28,54 +28,72 @@ fetch(url)
     .catch(error => console.error('Error fetching data:', error));
 
 function drawProgressBar(completion, renderto) {
-    Highcharts.chart({
-            chart: {
-                renderTo: renderto,
-                type: 'bar'
-            },
 
+    var series = [];
+
+    if (completion <= 30) series = [{data: [{y: completion, color: 'red'}]}];
+    else if (completion <= 70) series = [{data: [{y: completion - 30, color: 'yellow'}]},
+                                            {data: [{y: 30, color: 'red'}]} ];
+    else if (completion < 100) series = [{data: [{y: completion - 70, color: 'green'}]},
+                                           {data: [{y: 40, color: 'yellow'}]},
+                                           {data: [{y: 30, color: 'red'}]}];
+    else series = [{data: [{y: 100, color: 'purple'}]}];
+    
+
+    Highcharts.chart({
+        chart: {
+            renderTo: renderto,
+            type: 'bar'
+        },
+
+        title: {
+            text: ' '
+        },
+
+        yAxis: {
+            
             title: {
                 text: ' '
-            },
+            }
+        },
 
-            yAxis: {
-                title: {
-                    text: ' '
+        credits: {
+            enabled: false
+        },
+
+        legend: {
+            enabled: false,
+        },
+
+        yAxis: {
+            min: 0,
+            max: 100,
+            title: {
+                text: ' '},
+            
+        },
+
+        plotOptions: {
+            column: {
+                pointPadding: 0,
+                borderWidth: 0,
+                groupPadding: 0,
+                shadow: false,
+                dataLabels: {
+                    enabled: true,
+                    format: '{y} %'
                 }
             },
 
-            credits: {
-                enabled: false
-            },
+            series: {
+                stacking: 'normal'
+            }
+        },
 
-            legend: {
-                enabled: false
-            },
+        
 
-            yAxis: {
-                min: 0,
-                max: 100,
-                title: {
-                    text: ' '
-                }
-            },
+        series: series
 
-            plotOptions: {
-                column: {
-                    pointPadding: 0,
-                    borderWidth: 0,
-                    groupPadding: 0,
-                    shadow: false,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{y} %'
-                    }
-                }
-            },
-
-            series: [{
-                name: 'Прогресс',
-                data: [completion] // Change this value to adjust the progress
-            }]
-});
+        
+    });
 }

@@ -12,7 +12,8 @@ fetch(url)
 
                 if (completion <= 30) color = "red";
                 else if (completion <= 70) color = "yellow";
-                else color = "green";
+                else if (completion < 100) color = "green";
+                else color = "purple";
 
                 var row = `<div class="grid-item-proj"><h2 style="color: ${color}">${item[0]}</h2></div>`
                 $(".grid-container-proj").append(row);

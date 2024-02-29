@@ -35,7 +35,9 @@
 		      transform: scale(1);
 		      border-color: darkblue;
 		}
-
+		#table-container-komunal{
+			font-size: 15.5px;
+		}
 	</style>
 
 </head>
@@ -47,6 +49,7 @@
 
 		<script src="../../scripts/finance/subsidii_finance.js"></script>
 		<script src="../../scripts/mainsail/kpiSubsidii.js"></script>
+		<script src="../../scripts/finance/komunal_yslugi.js"></script>
 
 		<div class="gridBox">
 			<div id="container1" class="gridComponent">
@@ -127,9 +130,11 @@
 	    	</div>
 
 
-	    	<div id="container6" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
-	    	</div>
+			<div id="container6" class="gridComponent">
+			    <div class="title"><h2>Коммунальные услуги</h2></div>
+			    <div class="cool-table" id="table-container-komunal"></div>
+			    <div id="pie-komunal" style="height: 250px;"></div>
+			</div>
 	    	<div id="container7" class="gridComponent">
 	    		<div class="title"><h2></h2></div>
 	    	</div>

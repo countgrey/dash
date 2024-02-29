@@ -21,11 +21,11 @@
 }
 
 .info-container {
-    width: 300px;
+    width: 900px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
 }

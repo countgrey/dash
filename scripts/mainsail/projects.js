@@ -5,8 +5,16 @@ fetch(url)
     .then(data => 
     {
             var rows = data.values;
+            
             rows.forEach(function (item) {
-                var row = `<div class="grid-item-proj"><h2>${item[0]}</h2></div>`
+                var color = "grey";
+                var completion = parseInt(item[1]);
+
+                if (completion <= 30) color = "red";
+                else if (completion <= 70) color = "yellow";
+                else color = "green";
+
+                var row = `<div class="grid-item-proj"><h2 style="color: ${color}">${item[0]}</h2></div>`
                 $(".grid-container-proj").append(row);
             }); 
         

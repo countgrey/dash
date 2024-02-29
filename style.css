@@ -267,6 +267,11 @@ table {
 }
 
 .grid-item-proj {
+	text-decoration: none;
 	margin: 10px;
 	text-align: center;
+	border: 0.3px solid black;
+	box-shadow: 3px 3px black;
+	border-radius: 10px;
+        background:#24272e;
 }

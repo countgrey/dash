@@ -35,7 +35,7 @@
 
 		}
 
-		.gridBox a
+		a
 		{
 			text-decoration: none;
 		}
@@ -249,4 +249,24 @@ table {
 	position: absolute;
 	left: -20px;
     top: 8px;
+}
+
+
+.grid-container-proj {
+	display: grid; 
+  grid-auto-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr; 
+  gap: 4px 4px; 
+  grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."
+    ". ."; 
+	height: 400px;
+}
+
+.grid-item-proj {
+	margin: 10px;
+	text-align: center;
 }

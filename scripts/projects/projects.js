@@ -31,13 +31,13 @@ function drawProgressBar(completion, renderto) {
 
     var series = [];
 
-    if (completion <= 30) series = [{data: [{y: completion, color: 'red'}]}];
-    else if (completion <= 70) series = [{data: [{y: completion - 30, color: 'yellow'}]},
-                                            {data: [{y: 30, color: 'red'}]} ];
-    else if (completion < 100) series = [{data: [{y: completion - 70, color: 'green'}]},
-                                           {data: [{y: 40, color: 'yellow'}]},
-                                           {data: [{y: 30, color: 'red'}]}];
-    else series = [{data: [{y: 100, color: 'purple'}]}];
+    if (completion <= 30) series = [{data: [{y: completion, color: '#F44336'}]}];
+    else if (completion <= 70) series = [{data: [{y: completion - 30, color: '#FFEB3B'}]},
+                                            {data: [{y: 30, color: '#F44336'}]} ];
+    else if (completion < 100) series = [{data: [{y: completion - 70, color: '#81C784'}]},
+                                           {data: [{y: 40, color: '#FFEB3B'}]},
+                                           {data: [{y: 30, color: '#F44336'}]}];
+    else series = [{data: [{y: 100, color: '#8241FF'}]}];
     
 
     Highcharts.chart({

@@ -6,13 +6,16 @@ range = '2024 год!A2:K15';
 
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
-var series = [];
-var categories = [];
-var seriesData = [];
 
 fetch(url)
     .then(response => response.json())
     .then(data => {
+
+        let series = [];
+        let categories = [];
+        let seriesData = [];
+
+        
         for (let month = 1; month <= 12; month++) {
             categories.push(data.values[month][0])
         }

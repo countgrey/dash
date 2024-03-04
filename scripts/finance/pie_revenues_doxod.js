@@ -75,11 +75,11 @@ function fetchData(){
                             align: 'right',
                             verticalAlign: 'middle',
                             layout: 'vertical',
-                            itemWidth: 300,
+                            itemWidth: 250,
                             itemStyle: {
                                 align: 'center',
                                 color: 'rgba(255,255,255,1)',
-                                fontSize: '16px',
+                                fontSize: '14px',
                                 fontWeight: 'normal',
                                 fontStyle: 'normal'
                             },

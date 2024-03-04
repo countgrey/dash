@@ -2,7 +2,7 @@ sheetId = '1-x6T_G75fKgqhTIuB4Ku_wC6m-VsvOJ22gZznWP4aVA';
 
 apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 
-range = '2024 год!A2:K15';
+range = '2024 год!C40:J53';
 
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
@@ -15,7 +15,7 @@ fetch(url)
         let categories = [];
         let seriesData = [];
 
-        
+
         for (let month = 1; month <= 12; month++) {
             categories.push(data.values[month][0])
         }
@@ -29,17 +29,10 @@ fetch(url)
             series.push(seriesData);
         }
 
-        seriesData = {name: "Всего", data: [], type: 'line'};
-        for (let month = 1; month <= 12; month++) {
-            let tempData = String(data.values[month][data.values[0].length-1]);
-            seriesData.data.push(parseInt(tempData.toString().replace(/\s/g, '')));
-        }
-        series.push(seriesData);
-
         
-        var hisogramDohod = new Highcharts.Chart({
+        var hisogramZarp = new Highcharts.Chart({
             chart: {
-                renderTo: 'dohodHistogram',
+                renderTo: 'zarpHistogram',
                 type: "column",
                 shadow: true    
             },

@@ -1,0 +1,59 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item {
+    box-shadow: 3px 3px black;
+    border-radius: 10px;
+    width:100%;
+    height:100px;
+    border: 0.5px solid black;
+    background: #25272f;
+    transition: transform .2s;
+    margin: auto;
+    margin-top: 10px;
+    animation: cardEnter 0.2s ease 0s 1 normal none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+
+.info-container {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.flex-item:hover {
+      transform: scale(1.005);
+      border-color: darkblue;
+}
+
+.flex-item .title h1 {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.flex-item h2 {
+    line-height: 0px;
+}
+
+.flex-item .progress-bar {
+    margin-top: 35px;
+    width: 50%;
+    height: 100px;
+}
+
+.info-item: {
+    width: 100%;
+    align-self: auto;
+    flex-basis: auto;
+    display: block;
+}

@@ -82,6 +82,7 @@ function getStudentsData()
                     chart: {
                         renderTo: 'StudentsHistogram',
                         type: "column",
+                        backgroundColor: 'transparent',
                         shadow: true    
                     },
                     

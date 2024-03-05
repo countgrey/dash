@@ -79,32 +79,61 @@ $.ajax({
             var pieChart = new Highcharts.Chart({
                 chart: {
                     renderTo: 'educationPie',
-                    plotBackgroundColor: null,
+                    backgroundColor: 'transparent',
                     plotBorderWidth: null,
                     plotShadow: false,
                     type: 'pie'
                 },
                 title: {
-                    text: 'Распределение по образованию'
+                    text: ''
                 },
-                tooltip: {
-                    pointFormat: '{series.name}: '
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
+               credits:
+    {
+        enabled: false
+    },
+    xAxis: {
+        type: 'datetime'
+    },
+
+   legend: {
                             enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} ',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            layout: 'vertical',
+                            itemWidth: 250,
+                            itemStyle: {
+                                align: 'center',
+                                color: 'rgba(255,255,255,1)',
+                                fontSize: '14px',
+                                fontWeight: 'normal',
+                                fontStyle: 'normal'}
+                            },
+
+
+    plotOptions: {
+        "pie": {
+            "dataLabels": {
+                "style": {
+                    "align": "center",
+                    "color": "rgba(0,0,0,1)",
+                    "fontSize": "14px",
+                    "fontWeight": "bold",
+                    "fontStyle": "normal",
+                    "textOverflow": "none"
                 },
+                "enabled": false,
+                "distance": -12
+            },
+            "size": "90%",
+            "innerSize": "50%",
+            "showInLegend": true,
+            "animation": true,
+            "borderWidth": 0
+        }
+    },
+
                 series: [{
-                    name: 'Образование',
+                    name: '',
                     colorByPoint: true,
                     data: educationData
                 }]

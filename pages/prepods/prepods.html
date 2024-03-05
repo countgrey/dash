@@ -7,8 +7,6 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
-
-
     <link rel="stylesheet" href="prepods_style.css">
     <link rel="stylesheet" href="..\..\style.css">
     <link type="image/x-icon" href="https://oksei.ru/public/img/logo.png" rel="icon">
@@ -16,53 +14,53 @@
 <body>
     <div class="mainTitle">    
         <img src="https://oksei.ru/public/img/logo.png" style="height:80px; width: auto; margin-left: 10px; padding: 10px;">
-         <h1 style="align-self: left; margin-left: 15px; padding: 5px;">ГАПОУ "ОКЭИ" Кадровый состав</h1>
-    
+        <h1 style="align-self: left; margin-left: 15px; padding: 5px;">ГАПОУ "ОКЭИ" Кадровый состав</h1>
     </div>
-        <div class="container">
+    <div class="container">
         <div class="column1">
-
             <div class="cell">
-                <div class="title" style="height: 30px;">Кадровый состав</div>
-
-                
-                    <div id="PrepodsPie"  id="chart1">
-                <script src="..\..\scripts\mainsail\prepods.js"></script>
-                    </div>
-            </div>
-
-            <div class="cell"  id="chart2">
                 <div class="title" style="height: 30px;">Образование</div>
-                <div></div>
+                <div id="educationPie"  id="chart1"></div>
             </div>
-            <div class="cell"  id="chart3">
-                <div class="title" style="height: 30px;">Ставка</div>
-                <div></div>
+            <div class="cell"  id="chart2">
+                <div class="title" style="height: 30px;">Возраст</div>
+                <div class="prepodsHistogram" id="container"></div>
+            </div>
+            <div class="cell" id="chart3">
+                <div id="tableContainer">
+                    <table class="stavkaTable" id="tableBody">
+                        <thead>
+                            <tr class="top">
+                                <th>Ставка/Нагрузка</th>
+                                <th>Количество</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="cell" id="chart4">
                 <div class="title" style="height: 30px;">Доп.Деятельность</div>
-                <div></div>
+                <tr class="top">
+                <th>Всего преподававтелей:</th>
+                <br>
+                <th>Кураторство:</th>
+                </tr>
             </div>
         </div>
         <div class="column2">
             <div class="cell" id="pie">
-                <table id="perssonaleTable" class="perssonale-table" > <script src="..\..\scripts\mainsail\prepods.js"></script>
-
+                <table id="perssonaleTable" class="perssonale-table" >
                     <thead>
                         <tr class="top">
                             <th>ФИО</th>
                             <th>Должность</th>
                             <th>Отдел</th>
-                        
                         </tr>
                     </thead>
-                    <tbody>
-                        <div id="charttrobber" class="custom-loader">
-                        <!-- Здесь будут заполнены данные из скрипта -->
-                    </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="..\..\scripts\mainsail\prepods.js"></script>
 </body>
 </html>

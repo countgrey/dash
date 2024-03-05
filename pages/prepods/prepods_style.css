@@ -74,7 +74,8 @@
 }
 
 #chart2 {
-    height: 24%;
+    height: 290px;
+    width: 800px;
     display: flex;
     flex-direction: column; /* Отображать элементы в столбец */;
     color: #ffffff;
@@ -84,16 +85,7 @@
     font-weight: bold;
 }
 
-#chart3 {
-    height: 24%;
-    display: flex;
-    flex-direction: column; /* Отображать элементы в столбец */;
-    color: #ffffff;
-    font-size: 1.5em;
-    line-height: 30px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-}
+
 
 #chart4 {
     height: 24%;
@@ -182,3 +174,26 @@ height: 70%;
 height: 90%;
 
 }**//
+
+.prepodsHistogram{
+
+height: 24%;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #25272f;
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+
+}
+
+.highcharts-series .highcharts-point {
+    margin-right: 0px; /* Устанавливаем расстояние между столбцами */
+}
+
+#tableContainer {
+    height: 300px;
+    overflow-y: auto;
+}
+

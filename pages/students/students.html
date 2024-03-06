@@ -12,13 +12,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="..\..\style.css">
     <link type="image/x-icon" href="https://oksei.ru/public/img/logo.png" rel="icon">
+    <style >
+        th{
+            font-size: 29px;
+        }
+    </style>
 </head>
 <body>
     <div class="mainTitle">            
-        <img src="https://oksei.ru/public/img/logo.png" style="height:80px; width: auto; margin-left: 10px; padding: 10px;">
+        <a href="../../index.html"><img src="https://oksei.ru/public/img/logo.png" style="height:80px; width: auto; margin-left: 10px; padding: 10px;"></a>
         <h1 style="align-self: left; margin-left: 10px; padding: 5px;">ГАПОУ "ОКЭИ" Студенты</h1>
     </div>
-        <div class="container">
+        <div class="container" style="overflow: hidden;">
         <div class="column1">
 
             <div class="cell" id="kpi">
@@ -43,7 +48,9 @@
                 <div id="studentsPie" style=" width: 100%; height: 92%;"><div id="charttrobber" class="custom-loader"></div><script src="..\..\scripts\students\students.js"></script></div>
             </div>
             <div class="cell">
-                3
+                <div class="title" style="height: 30px;">Количество студентов</div>
+                <div id="StudentsHistogram" style="height: 350px"><div id="charttrobber" class="custom-loader"></div>
+                <script src="..\..\scripts\mainsail\students.js"></script></div>
             </div>
         </div>
         <div class="column2">

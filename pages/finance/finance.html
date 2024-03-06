@@ -35,18 +35,22 @@
 		      transform: scale(1);
 		      border-color: darkblue;
 		}
-
+		#table-container-komunal{
+			font-size: 15.5px;
+		}
 	</style>
 
 </head>
 <body>
 		<div class="mainTitle">
-			<img src="https://oksei.ru/public/img/logo.png" style="height:60px; width: auto; margin-left: 10px; padding: 10px;">
+			<a href="../../index.html"><img src="https://oksei.ru/public/img/logo.png" style="height:60px; width: auto; margin-left: 10px; padding: 10px;"></a>
 			<h1 style="align-self: left; margin-left: 10px; padding: 5px;">ГАПОУ "ОКЭИ" Финансы</h1>
 		</div>
 
 		<script src="../../scripts/finance/subsidii_finance.js"></script>
 		<script src="../../scripts/mainsail/kpiSubsidii.js"></script>
+		<script src="../../scripts/finance/komunal_yslugi.js"></script>
+		<script src="../../scripts/finance/pie_revenues_doxod.js"></script>
 
 		<div class="gridBox">
 			<div id="container1" class="gridComponent">
@@ -80,7 +84,7 @@
 	    		</div>
 	    	</div>
 	    	<div id="container2" class="gridComponent">
-	    		<div class="title"><h2></h2>Субсидии госзадание</div>
+	    		<div class="title"><h2>Субсидии госзадание</h2></div>
 	    		<div class="cool-table" id="table-container-goszad"></div>
 	    	</div>
 	    	<div id="container3" class="gridComponent">
@@ -94,39 +98,20 @@
 
 	    	<div id="container5" class="gridComponent">
 	    		<div class="title"><h2>Долги по группам</h2></div>
-	    		<script src="../../scripts/finance/dolgi_kommunalka.js"></script>
-	    		<!--
-		    		<button class="btn" id="btn">
-					  Dropdown
-					  <i class="bx bx-chevron-down" id="arrow"></i>
-					</button>
-						<div class="dropdown" id="dropdown">
-						  <a href="#create">
-						    <i class="bx bx-plus-circle"></i>
-						    Create New
-						  </a>
-						  <a href="#draft">
-						    <i class="bx bx-book"></i>
-						    All Drafts
-						  </a>
-						  <a href="#move">
-						    <i class="bx bx-folder"></i>
-						    Move To
-						  </a>
-						  <a href="#profile">
-						    <i class="bx bx-user"></i>
-						    Profile Settings
-						  </a>
-						  <a href="#notification">
-						    <i class="bx bx-bell"></i>
-						    Notification
-						  </a>
-						  <a href="#settings">
-						    <i class="bx bx-cog"></i>
-						    Settings
-						  </a>
-						</div>
-					-->
+	    		  		
+		    		<div class='dropdown'>
+
+							<div class='title pointerCursor'>23.12.23<i class="fa fa-angle-right"></i></div>
+							<div class='menu pointerCursor hide'>
+									<div class='option' id='0'>23.12.23</div>
+									<div class='option' id='1'>03.01.24</div>
+									<div class='option' id='2'>29.01.24</div>
+									<div class='option' id='3'>19.02.24</div>
+							</div>
+
+					</div>
+					
+					<script src="../../scripts/finance/dolgi_kommunalka.js"></script>
 	    		<div class="kpi">
 	    			<div class="kpiText">Обучение основное: </div>
 	    			<div class="kpiValue"><span id="edu-main"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
@@ -146,17 +131,22 @@
 	    	</div>
 
 
-	    	<div id="container6" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
-	    	</div>
+			<div id="container6" class="gridComponent">
+			    <div class="title"><h2>Коммунальные услуги</h2></div>
+			    <div class="cool-table" id="table-container-komunal"></div>
+			    <div id="pie-komunal" style="height: 200px;"></div>
+			</div>
 	    	<div id="container7" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
+	    		<div class="title"><h2>Сотношение доходов</h2></div>
+	    		<div id="pie-revenues" style="height: 300px;"></div>
 	    	</div>
 	    	<div id="container8" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
+	    		<div class="title"><h2>Доходы</h2></div>
+	    		<div style="height: 370px;" id="dohodHistogram"><script src="../../scripts/finance/histogram_dohod.js"></script></div>
 	    	</div>
 	    	<div id="container9" class="gridComponent">
-	    		<div class="title"><h2></h2></div>
+	    		<div class="title"><h2>Зарплаты</h2></div>
+	    		<div style="height: 370px;" id="zarpHistogram"><script src="../../scripts/finance/histogram_zarp.js"></script></div>
 	    	</div>
 		</div>
 

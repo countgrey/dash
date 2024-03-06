@@ -4,7 +4,7 @@
 			padding: 6px;
 			font-family: 'Helvetica Neue', sans-serif;
 			color: whitesmoke;
-			margin: 0px;
+			margin: 0;
 		}
 
 		.gridBox
@@ -35,7 +35,7 @@
 
 		}
 
-		.gridBox a
+		a
 		{
 			text-decoration: none;
 		}
@@ -249,4 +249,29 @@ table {
 	position: absolute;
 	left: -20px;
     top: 8px;
+}
+
+
+.grid-container-proj {
+	display: grid; 
+  grid-auto-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr; 
+  gap: 4px 4px; 
+  grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."
+    ". ."; 
+	height: 350px;
+}
+
+.grid-item-proj {
+	text-decoration: none;
+	margin: 10px;
+	text-align: center;
+	border: 0.3px solid black;
+	box-shadow: 3px 3px black;
+	border-radius: 10px;
+        background:#24272e;
 }

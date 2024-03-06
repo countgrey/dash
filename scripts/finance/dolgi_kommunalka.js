@@ -5,7 +5,7 @@ range = '2024 год!G26:J30';
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
 
-function fetchData(){
+function fetchData(selectedData){
     fetch(url)
         .then(response => response.json())
         .then(data => 
@@ -42,19 +42,92 @@ function fetchData(){
 
 
             
-            //document.getElementById("date").innerHTML = "на " + data.values[0].toString().split(" ")[2];
+            //document.getElementById("date").innerHTML = "на " + dates[selectedData].toString().split(" ")[2];
 
-            document.getElementById("edu-main").innerHTML = valuesMain[0].toLocaleString().replace(/,/g, ' ');
-            document.getElementById("edu-dop").innerHTML = valuesDop[0].toLocaleString().replace(/,/g, ' ');
-            document.getElementById("edu-obshaga").innerHTML = valuesObshaga[0].toLocaleString().replace(/,/g, ' ');
-            document.getElementById("total").innerHTML = total[0].toLocaleString().replace(/,/g, ' ');
-            
+            if (typeof valuesMain[selectedData] !== 'undefined' && valuesMain[selectedData] !== null) {document.getElementById("edu-main").innerHTML = valuesMain[selectedData].toLocaleString().replace(/,/g, ' ');}
+            else {document.getElementById("edu-main").innerHTML = " ";}
+            if (typeof valuesDop[selectedData] !== 'undefined' && valuesDop[selectedData] !== null) {document.getElementById("edu-dop").innerHTML = valuesDop[selectedData].toLocaleString().replace(/,/g, ' ');}
+            else {document.getElementById("edu-dop").innerHTML = " ";}
+            if (typeof valuesObshaga[selectedData] !== 'undefined' && valuesObshaga[selectedData] !== null) {document.getElementById("edu-obshaga").innerHTML = valuesObshaga[selectedData].toLocaleString().replace(/,/g, ' ');}
+            else {document.getElementById("edu-obshaga").innerHTML = " ";}
+            if (typeof total[selectedData] !== 'undefined' && total[selectedData] !== null) {document.getElementById("total").innerHTML = total[selectedData].toLocaleString().replace(/,/g, ' ');}
+            else {document.getElementById("total").innerHTML = " ";}
+     
         })
         .catch(error => console.error('Error fetching data:', error));
 }
     
+fetchData(0); 
+   
+function toggleClass(elem,className){
+  if (elem.className.indexOf(className) !== -1){
+    elem.className = elem.className.replace(className,'');
+  }
+  else{
+    elem.className = elem.className.replace(/\s+/g,' ') +   ' ' + className;
+  }
+
+  return elem;
+}
+
+function toggleDisplay(elem){
+  const curDisplayStyle = elem.style.display;           
+
+  if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+    elem.style.display = 'block';
+  }
+  else{
+    elem.style.display = 'none';
+  }
+
+}
+
+function toggleMenuDisplay(e){
+  const dropdown = e.currentTarget.parentNode;
+  const menu = dropdown.querySelector('.menu');
+  const icon = dropdown.querySelector('.fa-angle-right');
+
+  toggleClass(menu,'hide');
+  toggleClass(icon,'rotate-90');
+}
+
+function handleOptionSelected(e){
+  toggleClass(e.target.parentNode, 'hide');         
+
+  const id = e.target.id;
+  const newValue = e.target.textContent + ' ';
+  const titleElem = document.querySelector('.dropdown .title');
+  const icon = document.querySelector('.dropdown .title .fa');
 
 
+  titleElem.textContent = newValue;
+  titleElem.appendChild(icon);
 
+  //trigger custom event
+  document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+    //setTimeout is used so transition is properly shown
+  setTimeout(() => toggleClass(icon,'rotate-90',0));
+}
 
-fetchData();
+var datesById = 
+  {
+    "23.12.23 " : 0,
+    "03.01.24 " : 1,
+    "29.01.24 " : 2,
+    "19.02.24 " : 3
+  };
+
+function handleTitleChange(e){
+  fetchData(datesById[e.target.textContent]);
+}
+
+//get elements
+const dropdownTitle = document.querySelector('.dropdown .title');
+const dropdownOptions = document.querySelectorAll('.dropdown .option');
+
+//bind listeners to these elements
+dropdownTitle.addEventListener('click', toggleMenuDisplay);
+
+dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
+
+document.querySelector('.dropdown .title').addEventListener('change',handleTitleChange);

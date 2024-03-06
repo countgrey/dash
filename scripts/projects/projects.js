@@ -38,7 +38,7 @@ function drawProgressBar(completion, renderto) {
                                            {data: [{y: 40, color: '#FFEB3B'}]},
                                            {data: [{y: 30, color: '#F44336'}]}];
     else series = [{data: [{y: 100, color: '#8241FF'}]}];
-    
+    hideChartTrobbler();
 
     Highcharts.chart({
         chart: {
@@ -54,8 +54,13 @@ function drawProgressBar(completion, renderto) {
             
             title: {
                 text: ' '
-            }
+            },
         },
+        xAxis: {
+        labels: {
+           enabled: false
+        }
+    },
 
         credits: {
             enabled: false
@@ -70,6 +75,12 @@ function drawProgressBar(completion, renderto) {
             max: 100,
             title: {
                 text: ' '},
+            labels:{
+                style:{
+                    color: '#999999'
+                }
+            },
+            gridLineWidth: 0
             
         },
 
@@ -95,5 +106,14 @@ function drawProgressBar(completion, renderto) {
         series: series
 
         
+    });
+}
+function hideChartTrobbler() {
+    // Получаем все элементы с id "charttrobber"
+    var chartTrobblerElements = document.querySelectorAll('.custom-loader');
+
+    // Проходимся по каждому элементу и скрываем его
+    chartTrobblerElements.forEach(function(element) {
+        element.style.display = 'none';
     });
 }

@@ -43,6 +43,7 @@
 
 		.gridComponent
 		{
+			position: relative;
 			box-shadow: 3px 3px black;
 			border-radius: 10px;
 			width:100%;
@@ -234,7 +235,7 @@ table {
         text-align: center;
     }
     td:nth-child(1){
-        text-align: center;
+        text-align: left;
     }
     td:nth-child(2){
         width: 27%;

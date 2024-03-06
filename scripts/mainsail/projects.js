@@ -18,6 +18,17 @@ fetch(url)
                 var row = `<div class="grid-item-proj"><h2 style="color: ${color}">${item[0]}</h2></div>`
                 $(".grid-container-proj").append(row);
             }); 
+            hideChartTrobbler();
         
     })
     .catch(error => console.error('Error fetching data:', error));
+
+    function hideChartTrobbler() {
+    // Получаем все элементы с id "charttrobber"
+    var chartTrobblerElements = document.querySelectorAll('#charttrobber');
+
+    // Проходимся по каждому элементу и скрываем его
+    chartTrobblerElements.forEach(function(element) {
+        element.style.display = 'none';
+    });
+}

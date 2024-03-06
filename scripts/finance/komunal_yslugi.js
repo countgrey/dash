@@ -6,7 +6,6 @@ apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 range = '2024 год!C34:H37';
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
-
 function fetchDataAndBuildTable() {
     fetch(url)
         .then(response => {
@@ -18,7 +17,8 @@ function fetchDataAndBuildTable() {
         .then(data => {
             buildTable(data); // Передача данных для построения таблицы
             headers = data.values[0]; // Сохраняем заголовки таблицы
-            drawPieChart(data, headers); // Рисование круговой диаграммы
+            const totalServices = calculateTotalServices(data); // Вычисление суммы всех коммунальных услуг
+            drawPieChart(data, headers, totalServices); // Рисование круговой диаграммы
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -52,7 +52,7 @@ function buildTable(data) {
             const value = cellData.replace(/\s/g, '').replace(',', '.');
             // Сокращение чисел до тысячи
             if (!isNaN(value)) {
-                const formattedValue = parseFloat(value) >= 1000 ? (parseFloat(value) / 1000).toFixed(1) + ' тыс.' : value;
+                const formattedValue = parseFloat(value) >= 1000 ? (parseFloat(value) / 1000).toFixed(0) + ' тыс.' : value;
                 cell.textContent = formattedValue;
             } else {
                 cell.textContent = value; // Оставляем как есть, если не число
@@ -66,8 +66,25 @@ function buildTable(data) {
     container.appendChild(table);
 }
 
+function calculateTotalServices(data) {
+    // Индексы столбцов с коммунальными услугами
+    const serviceColumns = [1, 2, 3, 4];
+    let total = 0;
 
-function drawPieChart(data, headers) {
+    for (let i = 1; i < data.values.length; i++) {
+        const rowData = data.values[i];
+        serviceColumns.forEach(columnIndex => {
+            const value = rowData[columnIndex].replace(/\s/g, '').replace(',', '.');
+            if (!isNaN(value)) {
+                total += parseFloat(value);
+            }
+        });
+    }
+
+    return total;
+}
+
+function drawPieChart(data, headers, totalServices) {
     const pieContainer = document.createElement('div');
     pieContainer.id = 'pie-komunal';
     pieContainer.style.width = '50%'; // Установка ширины контейнера для диаграммы
@@ -101,58 +118,66 @@ function drawPieChart(data, headers) {
             text: ''
         },
         credits: {
-                enabled: false
-            },
-
-            subtitle: {
-                useHTML: true,
-                text: 11,
-                floating: true,
-                verticalAlign: 'middle',
-                y: -18
-            },
-            plotOptions: {
-        "pie": {
-                    "dataLabels": {
-                        "style": {
-                            "align": "center",
-                            "color": "rgba(0,0,0,1)",
-                            "fontSize": "14px",
-                            "fontWeight": "bold",
-                            "fontStyle": "normal",
-                            "textOverflow": "none"
-                        },
-                        "enabled": false,
-                        "distance": -12
+            enabled: false
+        },
+        subtitle: {
+            useHTML: true,
+            text: `<span style="font-size: 14px; color: #999999">${formatNumber(totalServices)}</span>`,
+            floating: true,
+            verticalAlign: 'middle',
+            y: 13,
+            x: -85
+        },
+        plotOptions: {
+            "pie": {
+                "dataLabels": {
+                    "style": {
+                        "align": "center",
+                        "color": "rgba(0,0,0,1)",
+                        "fontSize": "14px",
+                        "fontWeight": "bold",
+                        "fontStyle": "normal",
+                        "textOverflow": "none"
                     },
-                    "size": "100%",
-                    "innerSize": "60%",
-                    "showInLegend": true,
-                    "animation": false,
-                    "borderWidth": 0
-        }
-    },
-    legend: {
-        "enabled": true,
-                "align": "right",
-                "verticalAlign": "middle",
-                "layout": "vertical",
-                "itemStyle": {
-                    "align": "center",
-                    "color": "rgba(255,255,255,1)",
-                    "fontSize": "16px",
-                    "fontWeight": "normal",
-                    "fontStyle": "normal"
+                    "enabled": false,
+                    "distance": -12
                 },
-                "itemMarginTop": 1.5,
-                "useHTML": true
-    },
+                "size": "100%",
+                "innerSize": "60%",
+                "showInLegend": true,
+                "animation": false,
+                "borderWidth": 0
+            }
+        },
+        legend: {
+            "enabled": true,
+            "align": "right",
+            "verticalAlign": "middle",
+            "layout": "vertical",
+            "itemStyle": {
+                "align": "center",
+                "color": "rgba(255,255,255,1)",
+                "fontSize": "16px",
+                "fontWeight": "normal",
+                "fontStyle": "normal"
+            },
+            "itemMarginTop": 1.5,
+            "useHTML": true
+        },
         series: [{
             name: 'Коммунальные услуги',
             colorByPoint: true,
             data: seriesData
         }]
     });
+}
+
+function formatNumber(number) {
+    if (number >= 1000) {
+        return (number / 1000).toFixed(0) + ' тыс.';
+    } else {
+        return number.toString();
+    }
 }
 
 fetchDataAndBuildTable();

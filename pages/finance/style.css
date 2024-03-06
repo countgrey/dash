@@ -5,13 +5,20 @@ table {
 }
 th {
     font-size: 1em;
+    line-height: 2;
 
 }
 
 td {
 
     font-size: 1em;
+    line-height: 2;
 
+}
+
+#table-container-inie th,
+#table-container-inie td {
+    line-height: 1.2;
 }
 
 
@@ -23,7 +30,7 @@ td:nth-child(4) {
 
 }
 td:nth-child(1){
-    text-align: center;
+    text-align: left;
     width: 10%;
 }
 td:nth-child(2){

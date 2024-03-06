@@ -48,7 +48,7 @@ var data = [
 
 function getSubtitle() {
     const totalNumber = data.reduce((acc, cur) => acc + cur.y, 0);
-    return `<span style="font-size: 22px;">${totalNumber}</span>`;
+    return `<span style="font-size: 22px; color: #999999;">${totalNumber}</span>`;
 }
 
 var prepodsPie	= new Highcharts.Chart({
@@ -80,7 +80,7 @@ var prepodsPie	= new Highcharts.Chart({
     legend: {
         enabled: true,
         itemStyle: {
-            "color": "rgba(204,204,204,1)",
+            "color": "rgba(153,153,153,1)",
             "fontSize": "12px",
             "fontWeight": "normal",
             "fontStyle": "normal"

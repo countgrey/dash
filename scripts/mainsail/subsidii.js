@@ -90,6 +90,11 @@ var kpiFinans = new Highcharts.Chart({
     {
     	enabled: false
     },
+    plotOptions: {
+        column: {
+            borderWidth: 0 // Отключение обводки для всех колонок
+        }
+    },
 
     series: [
     {

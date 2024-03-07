@@ -156,7 +156,7 @@ function drawPieChart(data, headers, totalServices) {
             "layout": "vertical",
             "itemStyle": {
                 "align": "center",
-                "color": "rgba(255,255,255,1)",
+                "color": "rgba(153,153,153,1)",
                 "fontSize": "16px",
                 "fontWeight": "normal",
                 "fontStyle": "normal"

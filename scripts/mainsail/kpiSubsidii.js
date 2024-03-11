@@ -33,7 +33,7 @@ fetch(url)
         //console.log(data);
 
         let sum = 0;
-        for (let i = 0; i < data.values.length; i++) {
+        for (let i = 1; i < data.values.length; i++) {
             sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
         }
 
@@ -50,15 +50,13 @@ fetch(url)
     .then(response => response.json())
     .then(data => 
     {
-        console.log(data);
+        //console.log(data);
 
         
 
         let sum = 0;
-        for (let i = 0; i < data.values.length; i++) {
-            
+        for (let i = 1; i < data.values.length; i++) {
             sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
-            console.log(data.values[i]);
         }
 
         document.getElementById("amountOfDohod").innerHTML = sum.toLocaleString().replace(/,/g, ' ');

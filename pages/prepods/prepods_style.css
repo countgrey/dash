@@ -19,6 +19,11 @@
 /*.custom-loader {
     margin-top: 23px;
 }*/
+#pie {
+
+height: 100%;
+
+}
 
 .cell
         {
@@ -47,23 +52,21 @@
             display: flex;
         }
 
-/*.title
+.title
         {
-            padding: 15px;
-            background: #25272f;
-            border: 1px solid black;
-            border-radius: 10px;
-            color: #ffffff;
-            font-family: 'Helvetica Neue', sans-serif; font-size: 1.5em;
-            font-weight: bold;
-            letter-spacing: -1px;
-            line-height: 0.2;
-            text-align: center;
+            height: 15%;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #25272f;
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
 
         }*/
 
 #chart1 {
-    height: 24%;
+    height: 15%;
     display: flex;
     flex-direction: column; /* Отображать элементы в столбец */;
     color: #25272f;
@@ -74,20 +77,6 @@
 }
 
 #chart2 {
-    height: 290px;
-    width: 800px;
-    display: flex;
-    flex-direction: column; /* Отображать элементы в столбец */;
-    color: #ffffff;
-    font-size: 1.5em;
-    line-height: 30px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-}
-
-
-
-#chart4 {
     height: 24%;
     display: flex;
     flex-direction: column; /* Отображать элементы в столбец */;
@@ -97,6 +86,18 @@
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: bold;
 }
+
+#chart3 {
+    height:35%;
+    display: flex;
+    flex-direction: column; /* Отображать элементы в столбец */;
+    color: #ffffff;
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
 
 .cell .title{
     color: '#ffffff';
@@ -110,7 +111,7 @@
 
 .kpi-item {
     display: flex;
-    /*align-items: center; /* Выравнивание по вертикали */*/  
+    /*align-items: center; /* Выравнивание по вертикали */ 
 }
 
 .kpitext {
@@ -149,7 +150,7 @@
 }
 .perssonale-table{
 
-    height: 90px;
+    height: 200px;
     font-size: 12px;
 }
 
@@ -161,19 +162,6 @@
 
             font-size: 20px;
     }
-
-.PrepodPie {
-
-width: 70%;
-height: 70%;
-
-}
-
-//**#pie {
-
-height: 90%;
-
-}**//
 
 .prepodsHistogram{
 
@@ -193,7 +181,10 @@ height: 24%;
 }
 
 #tableContainer {
-    height: 300px;
+    height: 310px;
     overflow-y: auto;
 }
 
+.table{
+    height: 120%;
+}

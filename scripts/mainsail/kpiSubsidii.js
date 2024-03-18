@@ -33,7 +33,7 @@ fetch(url)
         //console.log(data);
 
         let sum = 0;
-        for (let i = 1; i < data.values.length; i++) {
+        for (let i = 0; i < data.values.length; i++) {
             sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
         }
 
@@ -55,7 +55,7 @@ fetch(url)
         
 
         let sum = 0;
-        for (let i = 1; i < data.values.length; i++) {
+        for (let i = 0; i < data.values.length; i++) {
             sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
         }
 

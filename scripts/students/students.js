@@ -105,6 +105,7 @@ function getStudentsData()
                 }
                 var allBud = economCountBud + itCountBud + creativeCountBud;
                 var allCom = economCountCom + itCountCom + creativeCountCom;
+                var totalStudents = allBud + allCom;
                 document.getElementById('totalStudents').innerText = allBud + allCom;
                 document.getElementById('budgetStudents').innerText = allBud;
                 document.getElementById('commercialStudents').innerText = allCom;
@@ -122,6 +123,9 @@ function getStudentsData()
                                 }
                                 ]
                             }];
+                function getSubtitle() {
+    
+                return `<span style="font-size: 25px">${totalStudents}</span>`}
                 
                 var chart1 = Highcharts.chart('studentsPie', {
     chart: {
@@ -137,6 +141,13 @@ function getStudentsData()
     {
         enabled: false
     },
+    subtitle: {
+            useHTML: true,
+            text: getSubtitle(),
+            floating: true,
+            verticalAlign: 'middle',
+            y: -8
+        },
     xAxis: {
         type: 'datetime'
     },

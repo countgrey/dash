@@ -75,11 +75,22 @@ function loadGoogleSheet() {
                     },
                     title: {
                         text: "",
-                    },
-                    credits: {
+                             },
+                    credits:
+                    {
                         enabled: false
                     },
-                   
+                    subtitle: {
+                            useHTML: true,
+                            text: "",
+                            floating: true,
+                            verticalAlign: 'middle',
+                            y: -8
+                        },
+                    xAxis: {
+                        type: 'datetime'
+                    },
+
                     legend: {
                         enabled: true,
                         itemStyle: {
@@ -89,11 +100,12 @@ function loadGoogleSheet() {
                             "fontStyle": "normal"
                         }
                     },
+
                     plotOptions: {
                         "pie": {
                             "dataLabels": {
                                 "style": {
-                                    "align": "center",
+                                    "align": "flex",
                                     "color": "rgba(0,0,0,1)",
                                     "fontSize": "14px",
                                     "fontWeight": "bold",
@@ -103,7 +115,7 @@ function loadGoogleSheet() {
                                 "enabled": false,
                                 "distance": -12
                             },
-                            "size": "130%",
+                            "size": "90%",
                             "innerSize": "50%",
                             "showInLegend": true,
                             "animation": true,
@@ -144,60 +156,123 @@ function loadGoogleSheet() {
         
     },
     title: {
-        text: "",
-    },
-    credits: {
-        enabled: false
-    },
-    xAxis: {
-      categories: categories,
-        type: 'datetime'
-    },
-    yAxis: {
-        gridLineWidth: 0,
-        
-    },
-    legend: {
-        enabled: false,
-        itemStyle: {
-            "color": "rgba(204,204,204,1)",
-            "fontSize": "12px",
-            "fontWeight": "normal",
-            "fontStyle": "normal"
-
-        }
-    },
-   plotOptions: {
-    "column": {
-        "dataLabels": {
-            "borderWidth": 1, // Устанавливаем толщину рамки
-            "borderColor": "transparent", // Устанавливаем цвет рамки как прозрачный
-            enabled: true, // Включаем метки данных
-            formatter: function() {
-                return this.y; // Отображаем значение данных
+                text: ""
             },
-            "text":{
 
-                borderWidth: 0,
+            credits:
+            {
+                enabled: false
+            },
 
+            xAxis: {
+                "lineWidth": 1,
+                "title": {
+                    "text": "",
+                    "style": {
+                        "align": "center",
+                        "color": "rgba(0,0,0,1)",
+                        "fontSize": "8px",
+                        "fontWeight": "normal",
+                        "fontStyle": "normal"
+                    }
+                },
+                "labels": {
+                    "enabled": true,
+                    "style": {
+                        "align": "center",
+                        "color": "rgba(153,153,153,1)",
+                        "fontSize": "10px",
+                        "fontWeight": "normal",
+                        "fontStyle": "normal"
+                    }
+                },
+                "gridLineWidth": 0,
+                "opposite": false,
+                "type": "category",
+                "plotLines": [],
+                "plotBands": [],
+                "categories": categories
             },
-            "style": {
-                "align": "center",
-                "color": "rgba(0,0,0,1)",
-                "fontSize": "14px",
-                "fontWeight": "bold",
-                "fontStyle": "normal",
-                "textOverflow": "none"
+            yAxis: {
+                "lineWidth": 0,
+                "title": {
+                    "text": "",
+                    "style": {
+                        "align": "center",
+                        "color": "rgba(0,0,0,1)",
+                        "fontSize": "8px",
+                        "fontWeight": "normal",
+                        "fontStyle": "normal"
+                    }
+                },
+                "labels": {
+                    "enabled": true,
+                    "style": {
+                        "align": "center",
+                        "color": "rgba(102,102,102,1)",
+                        "fontSize": "12px",
+                        "fontWeight": "normal",
+                        "fontStyle": "normal"
+                    }
+                },
+                "min": null,
+                "max": null,
+                "allowDecimals": true,
+                "tickLength": 0,
+                "gridLineWidth": 0,
+                "plotLines": [],
+                "plotBands": [],
+                "stackLabels": {
+                    "enabled": true,
+                    "style": {
+                        "align": "center",
+                        "color": "rgba(153,153,153,1)",
+                        "fontSize": "10px",
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "textOutline": false
+                    }
+                }
             },
-            "distance": -12
-        },
-        "size": "50%",
-        "innerSize": "60%",
-        "showInLegend": false,
-        "animation": true,
-        "borderWidth": 0 // Устанавливаем толщину рамки столбцов в 0
-    }
-},
+
+            plotOptions: {
+                "series": {
+                    "dataLabels": {
+                        "enabled": false,
+                        "style": {
+                            "align": "center",
+                            "color": "rgba(0,0,0,1)",
+                            "fontSize": "8px",
+                            "fontWeight": "normal",
+                            "fontStyle": "normal"
+                        },
+                        "allowOverlap": true
+                    },
+                    "cropThreshold": 100000,
+                    "states": {
+                        "inactive": {
+                            "opacity": 1
+                        },
+                        "select": {
+                            "color": null,
+                            "borderWidth": 0,
+                            "borderColor": "transparent"
+                        },
+                        "unselect": {
+                            "alpha": 0.31999999999999995
+                        }
+                    },
+                    "stacking": "normal",
+                    "grouping": true,
+                    "animation": false,
+                    "borderColor": "transparent"
+                }
+            },
+
+            legend: false,
+           
+            
+
 
     series: [{
         data: data,
@@ -215,7 +290,7 @@ function loadGoogleSheet() {
 //Круговая диаграмма возраст
 
 // Делаем AJAX запрос к API для загрузки данных для круговой диаграммы
- chartUrl = `https://sheets.googleapis.com/v4/spreadsheets/1gwyyF2hdtwDjF4AG3xuaBW2O6Y0GXz0TvvLT5-kdfU4/values/1!J1:K5?key=AIzaSyB8W0lONxmOxcPGzgrMCrbo3p2_OzrieaI`;
+ chartUrl = `https://sheets.googleapis.com/v4/spreadsheets/1gwyyF2hdtwDjF4AG3xuaBW2O6Y0GXz0TvvLT5-kdfU4/values/1!J2:K5?key=AIzaSyB8W0lONxmOxcPGzgrMCrbo3p2_OzrieaI`;
 $.ajax({
     url: chartUrl,
     success: function(response) {

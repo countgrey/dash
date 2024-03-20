@@ -1,20 +1,30 @@
 .gridBox {
     padding-top: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;  
+    height: 85vh;     
 }
 
 .gridComponent {
-    height: 85vh;
-    animation: none;
+    height: 100%;
+}
+
+.gridComponent:hover {
+    transform: none;
+}
+
+.left-col .gridComponent {
+    height: 50%;
 }
 
 .left-col {
     display: flex;
     flex-direction: column;
     width: 33.3%;
+    justify-content: space-between;
 }
 
 .right-col {
     width: 66.6%;
+    padding-bottom: 0px;
 }

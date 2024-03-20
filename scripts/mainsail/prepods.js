@@ -105,7 +105,7 @@ var prepodsPie  = new Highcharts.Chart({
                 
                 
             },
-            "size": "50%",
+            "size": "90%",
             "innerSize": "50%",
             "showInLegend": true,
             "animation": true,

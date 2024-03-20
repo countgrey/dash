@@ -1,0 +1,20 @@
+.gridBox {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.gridComponent {
+    height: 85vh;
+    animation: none;
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+}
+
+.right-col {
+    width: 66.6%;
+}

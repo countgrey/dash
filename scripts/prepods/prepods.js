@@ -92,13 +92,18 @@ function loadGoogleSheet() {
                     },
 
                     legend: {
-                        enabled: true,
-                        itemStyle: {
-                            "color": "rgba(204,204,204,1)",
-                            "fontSize": "12px",
-                            "fontWeight": "normal",
-                            "fontStyle": "normal"
-                        }
+                        "marginTop":50,
+                "itemWidth": 250,
+                "enabled": true,
+                "align": "right",
+                "verticalAlign": "middle",
+                "layout": "vertical",
+                "itemStyle": {
+                    "align": "center",
+                    "color": "rgba(255,255,255,1)",
+                    "fontSize": "16px",
+                    "fontWeight": "normal",
+                    "fontStyle": "normal"}
                     },
 
                     plotOptions: {

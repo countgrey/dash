@@ -1,63 +1,21 @@
 sheetId = '1-x6T_G75fKgqhTIuB4Ku_wC6m-VsvOJ22gZznWP4aVA';
 apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 
-range = '2024 год!G26:J30';
-url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+range = '2024 год!G26:AA30';
+const urls = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
-
-function fetchData(selectedData){
-    fetch(url)
+function fetchData(selectedData = 0){
+    fetch(urls)
         .then(response => response.json())
         .then(data => 
         {
-            //console.log(data);
-
-            let dates = [];
-            let valuesMain = [];
-            let valuesDop = [];
-            let valuesObshaga = [];
-            let total = [];
-
-            data.values[0].forEach((element) => {
-                let date = element.split(" ");
-                date = date[date.length-1];
-                dates.push(date);
-            });
-
-            data.values[1].forEach((element) => {
-                valuesMain.push(element);
-            });
-
-            data.values[2].forEach((element) => {
-                valuesDop.push(element);
-            });
-
-            data.values[3].forEach((element) => {
-                valuesObshaga.push(element);
-            });
-
-            data.values[4].forEach((element) => {
-                total.push(element);
-            });
 
 
-            
-            //document.getElementById("date").innerHTML = "на " + dates[selectedData].toString().split(" ")[2];
-
-            if (typeof valuesMain[selectedData] !== 'undefined' && valuesMain[selectedData] !== null) {document.getElementById("edu-main").innerHTML = valuesMain[selectedData].toLocaleString().replace(/,/g, ' ');}
-            else {document.getElementById("edu-main").innerHTML = " ";}
-            if (typeof valuesDop[selectedData] !== 'undefined' && valuesDop[selectedData] !== null) {document.getElementById("edu-dop").innerHTML = valuesDop[selectedData].toLocaleString().replace(/,/g, ' ');}
-            else {document.getElementById("edu-dop").innerHTML = " ";}
-            if (typeof valuesObshaga[selectedData] !== 'undefined' && valuesObshaga[selectedData] !== null) {document.getElementById("edu-obshaga").innerHTML = valuesObshaga[selectedData].toLocaleString().replace(/,/g, ' ');}
-            else {document.getElementById("edu-obshaga").innerHTML = " ";}
-            if (typeof total[selectedData] !== 'undefined' && total[selectedData] !== null) {document.getElementById("total").innerHTML = total[selectedData].toLocaleString().replace(/,/g, ' ');}
-            else {document.getElementById("total").innerHTML = " ";}
-     
         })
         .catch(error => console.error('Error fetching data:', error));
 }
     
-fetchData(0); 
+fetchData();
    
 function toggleClass(elem,className){
   if (elem.className.indexOf(className) !== -1){
@@ -108,14 +66,6 @@ function handleOptionSelected(e){
     //setTimeout is used so transition is properly shown
   setTimeout(() => toggleClass(icon,'rotate-90',0));
 }
-
-var datesById = 
-  {
-    "23.12.23 " : 0,
-    "03.01.24 " : 1,
-    "29.01.24 " : 2,
-    "19.02.24 " : 3
-  };
 
 function handleTitleChange(e){
   fetchData(datesById[e.target.textContent]);

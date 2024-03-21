@@ -4,80 +4,62 @@ apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 range = '2024 год!G26:AA30';
 const urls = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
-function fetchData(selectedData = 0){
-    fetch(urls)
-        .then(response => response.json())
-        .then(data => 
-        {
+const dataEnum = {
+    "Date"    : 0,
+    "MainEdu" : 1,
+    "DopEdu"  : 2,
+    "ObsEdu"  : 3,
+    "Total"   : 4
+} 
 
-
-        })
-        .catch(error => console.error('Error fetching data:', error));
-}
-    
-fetchData();
-   
-function toggleClass(elem,className){
-  if (elem.className.indexOf(className) !== -1){
-    elem.className = elem.className.replace(className,'');
-  }
-  else{
-    elem.className = elem.className.replace(/\s+/g,' ') +   ' ' + className;
-  }
-
-  return elem;
+//Ждём дату из с гугла
+async function fetchData(selectedData = 0){
+    const dataResponse = await fetch(urls);
+    const data = await dataResponse.json();
+    return data;
 }
 
-function toggleDisplay(elem){
-  const curDisplayStyle = elem.style.display;           
-
-  if (curDisplayStyle === 'none' || curDisplayStyle === ''){
-    elem.style.display = 'block';
-  }
-  else{
-    elem.style.display = 'none';
-  }
-
+function PutInHtml(ElementID, value)
+{
+    document.getElementById(ElementID).innerHTML = value;
 }
 
-function toggleMenuDisplay(e){
-  const dropdown = e.currentTarget.parentNode;
-  const menu = dropdown.querySelector('.menu');
-  const icon = dropdown.querySelector('.fa-angle-right');
+function MakeCoolDropdown(text, value)
+{
+    //document.getElementById("dropdown2_The_Movie");
+    let newDate = document.createElement('option');
+    newDate.text = text;
+    newDate.value = value;
 
-  toggleClass(menu,'hide');
-  toggleClass(icon,'rotate-90');
+    dropdown2_The_Movie.add(newDate);
 }
 
-function handleOptionSelected(e){
-  toggleClass(e.target.parentNode, 'hide');         
 
-  const id = e.target.id;
-  const newValue = e.target.textContent + ' ';
-  const titleElem = document.querySelector('.dropdown .title');
-  const icon = document.querySelector('.dropdown .title .fa');
+async function LoadData(selectedData = 0, loadThing = false)
+{
+    console.log("I GOT THIS: " +  selectedData)
+    const data = await fetchData();
 
-
-  titleElem.textContent = newValue;
-  titleElem.appendChild(icon);
-
-  //trigger custom event
-  document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
-    //setTimeout is used so transition is properly shown
-  setTimeout(() => toggleClass(icon,'rotate-90',0));
+    if(loadThing)
+    {
+        for(let i = 0; i < 5; i++)
+            MakeCoolDropdown(data.values[dataEnum.Date][i], i);  
+    }
+    let keys = Object.keys(dataEnum);
+    for(let i = 1; i < 5; i++)
+    {
+        let key = keys[i];
+        PutInHtml(key, data.values[dataEnum[key]][selectedData]);
+    }
 }
 
-function handleTitleChange(e){
-  fetchData(datesById[e.target.textContent]);
-}
+LoadData(0 ,true);
 
-//get elements
-const dropdownTitle = document.querySelector('.dropdown .title');
-const dropdownOptions = document.querySelectorAll('.dropdown .option');
+let btn = document.getElementById("dropdown2_The_Movie");
 
-//bind listeners to these elements
-dropdownTitle.addEventListener('click', toggleMenuDisplay);
-
-dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
-
-document.querySelector('.dropdown .title').addEventListener('change',handleTitleChange);
+btn.addEventListener('click', function()
+{
+    let dropdownID      = document.getElementById("dropdown2_The_Movie");
+    let dropdownValue   = dropdownID.selectedIndex;
+    LoadData(dropdownValue);
+});

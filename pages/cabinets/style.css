@@ -28,3 +28,31 @@
     width: 66.6%;
     padding-bottom: 0px;
 }
+
+.room {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer; /* Добавляем указатель при наведении */
+}
+.computer-room {
+    border-color: blue;
+}
+.stream-room {
+    width: 50px;
+    height: 70px;
+}
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    display: none; /* По умолчанию подсказка скрыта */
+}

@@ -1,65 +1,65 @@
-var sheetId = '1-x6T_G75fKgqhTIuB4Ku_wC6m-VsvOJ22gZznWP4aVA';
+let sheetId = '1-x6T_G75fKgqhTIuB4Ku_wC6m-VsvOJ22gZznWP4aVA';
+let _apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 
-var apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
+let dataEnumSub = {
+    0   : "amountOfDohod",
+    1   : "amountOfRashod",
+    2   : "amountOfOstatok"
+}
 
-var range = '2024 год!F20:F23';
+let dataArray = [
+    ["D21:D23", "E21:E23", "F21:F23"],
+]
 
-var url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+let subsidTypeOfData = {
+    "Dohod" : 0,
+    "Rashod": 1,
+    "Ostatok":2
+}
 
-fetch(url)
-    .then(response => response.json())
-    .then(data => 
+//Ждём дату из с гугла
+async function fetchData(url)
+{
+    let _dataResponse = await fetch(url);
+    let _data = await _dataResponse.json();
+    return _data;
+}
+
+let subData = void 0;
+
+let twoTwo      = [];
+
+async function LoadData(page)
+{
+    let sum = 0;
+    let array = []
+    for(let i = 0; i < 3; i++)
     {
+        let colum   = dataArray[0][i];
+        let url     = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${page + colum}?key=${_apiKey}`;
 
-        document.getElementById("date").innerHTML = "на " + data.values[0].toString().split(" ")[2];
+        subData    = await fetchData(url);
 
-        let sum = 0;
-        for (let i = 1; i < data.values.length; i++) {
-            sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
+        sum = 0;
+        for(let j = 0; j < subData.values.length; ++j)
+        {
+            if(subData.values[j][0] != undefined)
+            {
+                let tmpData = subData.values[j][0].replace(/\s/g, '').replace(',' , '.');
+                let tmpInt = parseInt(tmpData);
+                
+                tmpInt = isNaN(tmpInt) ? 0 : tmpInt;
+                sum += tmpInt;
+            }
+            document.getElementById(dataEnumSub[i]).innerHTML = sum.toLocaleString().replace(/,/g, ' ');
+            
         }
+        array.push(sum);
+    }
 
-        document.getElementById("amountOfOstatok").innerHTML = sum.toLocaleString().replace(/,/g, ' ');
-        
-    })
-    .catch(error => console.error('Error fetching data:', error));
+    let _fullPathToFile = document.location.href
+    if(_fullPathToFile.includes("index.html"))
+        SubdidCharts(array)
+}
 
-
-range = '2024 год!E21:E23';
-url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-fetch(url)
-    .then(response => response.json())
-    .then(data => 
-    {
-        //console.log(data);
-
-        let sum = 0;
-        for (let i = 0; i < data.values.length; i++) {
-            sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
-        }
-
-        document.getElementById("amountOfRashod").innerHTML = sum.toLocaleString().replace(/,/g, ' ');
-        
-    })
-    .catch(error => console.error('Error fetching data:', error));
-
-
-
-range = '2024 год!D21:D23';
-url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-fetch(url)
-    .then(response => response.json())
-    .then(data => 
-    {
-        //console.log(data);
-
-        
-
-        let sum = 0;
-        for (let i = 0; i < data.values.length; i++) {
-            sum += parseInt(data.values[i].toString().replace(/\s/g, ''));
-        }
-
-        document.getElementById("amountOfDohod").innerHTML = sum.toLocaleString().replace(/,/g, ' ');
-        
-    })
-    .catch(error => console.error('Error fetching data:', error));
+LoadData("2024 год!");

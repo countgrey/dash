@@ -18,11 +18,11 @@ let subsidTypeOfData = {
 }
 
 //Ждём дату из с гугла
-async function fetchData(url)
+async function fetchDataSuper(url)
 {
-    let _dataResponse = await fetch(url);
-    let _data = await _dataResponse.json();
-    return _data;
+    let _data_Response = await fetch(url);
+    let _data_ = await _data_Response.json();
+    return _data_;
 }
 
 let subData = void 0;
@@ -36,9 +36,8 @@ async function LoadData(page)
     for(let i = 0; i < 3; i++)
     {
         let colum   = dataArray[0][i];
-        let url     = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${page + colum}?key=${_apiKey}`;
-
-        subData    = await fetchData(url);
+        let _url     = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${page + colum}?key=${_apiKey}`;
+        subData    = await fetchDataSuper(_url);
 
         sum = 0;
         for(let j = 0; j < subData.values.length; ++j)
@@ -48,7 +47,7 @@ async function LoadData(page)
                 let tmpData = subData.values[j][0].replace(/\s/g, '').replace(',' , '.');
                 let tmpInt = parseInt(tmpData);
                 
-                tmpInt = isNaN(tmpInt) ? 0 : tmpInt;
+                // tmpInt = isNaN(tmpInt) ? 0 : tmpInt;
                 sum += tmpInt;
             }
             document.getElementById(dataEnumSub[i]).innerHTML = sum.toLocaleString().replace(/,/g, ' ');

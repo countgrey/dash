@@ -57,9 +57,10 @@ async function LoadData(page)
         array.push(sum);
     }
 
-    let _fullPathToFile = document.location.href
-    if(_fullPathToFile.includes("index.html"))
-        SubdidCharts(array)
+    if (document.getElementById("container1")) {
+        SubdidCharts(array);
+    }
+    
     // Вызываем функцию для загрузки данных из ячейки F20
     const cellValue = await fetchCellF20(page);
 

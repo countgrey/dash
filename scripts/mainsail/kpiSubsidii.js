@@ -25,6 +25,7 @@ async function fetchDataSuper(url)
     return _data_;
 }
 
+
 let subData = void 0;
 
 let twoTwo      = [];
@@ -59,6 +60,26 @@ async function LoadData(page)
     let _fullPathToFile = document.location.href
     if(_fullPathToFile.includes("index.html"))
         SubdidCharts(array)
+    // Вызываем функцию для загрузки данных из ячейки F20
+    const cellValue = await fetchCellF20(page);
+
+    // Извлекаем дату из полученного значения и вставляем её в <span> с id "date"
+    const dateSpan = document.getElementById("date");
+    if (dateSpan) {
+        const dateString = cellValue.split(" ").slice(-1)[0]; // Извлекаем последнее слово, предполагая, что это дата
+        dateSpan.innerHTML = "на " + dateString;
+    } else {
+        console.error("Элемент с id 'date' не найден");
+    }
 }
 
 LoadData("2024 год!");
+
+// Функция для загрузки данных из ячейки F20
+async function fetchCellF20(page) {
+    const cellF20Url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${page}F20?key=${_apiKey}`;
+    const response = await fetch(cellF20Url);
+    const data = await response.json();
+    const cellValue = data.values[0][0]; // Получаем значение ячейки F20
+    return cellValue; // Возвращаем значение для последующего использования
+}

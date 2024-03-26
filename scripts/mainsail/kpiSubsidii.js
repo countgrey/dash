@@ -56,12 +56,8 @@ async function LoadData(page)
         }
         array.push(sum);
     }
-
-    let _fullPathToFile = document.location.href
-    if(_fullPathToFile.includes("index.html")||_fullPathToFile.includes(""))
-        SubdidCharts(array)
-
     
+
     // Вызываем функцию для загрузки данных из ячейки F20
     const cellValue = await fetchCellF20(page);
 
@@ -73,6 +69,7 @@ async function LoadData(page)
     } else {
         console.error("Элемент с id 'date' не найден");
     }
+    SubdidCharts(array);
 }
 
 LoadData("2024 год!");

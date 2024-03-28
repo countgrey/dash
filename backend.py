@@ -6,7 +6,10 @@ import requests
 classrooms_data = [
     {"number": 101, "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
     {"number": 102, "capacity": 25, "students": 10, "groups": ["1м1"]},
-    {"number": 103, "capacity": 20, "students": 20, "groups": ["2бу1"]},
+    {"number": 104, "capacity": 30, "students": 0, "groups": []},
+    {"number": 105, "capacity": 30, "students": 0, "groups": []},
+    {"number": 106, "capacity": 30, "students": 0, "groups": []},
+    {"number": 107, "capacity": 30, "students": 0, "groups": []}
 ]
 
 def fetch_classrooms(api_url):

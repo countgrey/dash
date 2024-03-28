@@ -20,9 +20,12 @@ getClassrooms()
 
 function drawCabinets(classrooms, floor) {
     var locationsAndTypes = {
-        101: {location: [100, 100], type: "Поточный"},
-        102: {location: [140, 100], type: "Компьютерный"},
-        103: {location: [170, 100], type: "Обычный"}
+        101: {location: [600, 400], type: "Поточный"},
+        102: {location: [500, 450], type: "Обычный"},
+        104: {location: [350, 450], type: "Компьютерный"},
+        105: {location: [300, 450], type: "Компьютерный"},
+        106: {location: [200, 400], type: "Поточный"},
+        107: {location: [300, 350], type: "Компьютерный"}
     };
 
     classrooms.forEach(classroom => {

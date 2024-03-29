@@ -48,10 +48,10 @@ async function LoadDolgiData(selectedData = 0, loadThing = false)
         PutInHtml(key, _dolgiData.values[dataEnum[key]][selectedData]);
     }
 
-    if(loadThing)
-    {
-        for(let i = 0; i < 5; i++)
-            MakeCoolDropdown(_dolgiData.values[dataEnum.Date][i], i);  
+    if (loadThing) {
+        let dateArray = _dolgiData.values[dataEnum.Date];
+        for (let i = 0; i < dateArray.length; i++)
+            MakeCoolDropdown(dateArray[i], i);  
     }
 
     let newCoolArrayThing = [];

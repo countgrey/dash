@@ -62,7 +62,6 @@ async function LoadDolgiData(selectedData = 0, loadThing = false)
         newCoolArrayThing.push(parseFloat(tempCrap));
     }
     
-
     LoadDolgiCharts(_dolgiData.values[dataEnum.Date] ,newCoolArrayThing);
 }
 

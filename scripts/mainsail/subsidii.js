@@ -190,3 +190,4 @@ var kpiFinans = new Highcharts.Chart({
         ]
     }]
 });
+console.log(kpiFinans)

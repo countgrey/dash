@@ -4,7 +4,8 @@ function getStudentsData()
 
         const apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 
-        const range = 'Sheet1!C1:F64';
+        let range = 'Sheet1!C1:F64';
+        if (localStorage.getItem("isAuthorized") === "true") range = 'Sheet1!C1:J64';
 
         const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 

@@ -9,20 +9,26 @@
 
 </head>
 <body>
-    <h1 class="fw-bold text-center">Авторизация</h1>
+    <h1 class="fw-bold text-center" style="margin-top: 14%;">Авторизация</h1>
     <form id="login-form" method="post" class="container text-center">
         
-        <div>
-            <h5>Имя пользователя: </h5>
-            <input type="text" id="username" name="username" required>
+        <div style="margin-top: 4%;">
+            <input type="text" id="username" name="username" placeholder="Имя пользователя" required>
         </div>
 
         <div>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="Пароль" required>
         </div>
 
         <button type="submit">Войти</button>
     </form>
+     <!-- Всплывающее окно для сообщения об ошибке -->
+     <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <p style="font-size: larger;">Неверный логин или пароль. Пожалуйста, попробуйте снова.</p>
+            <button class="close-btn">Закрыть</button>
+        </div>
+    </div>
     <script src="loginscript.js"></script>
 </body>
 </html>

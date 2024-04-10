@@ -19,15 +19,32 @@ loginForm.addEventListener("submit", async (event) => {
 
     if (response.status === 200) {
         const data = await response.json();
-        isAuthorized = data.success;
+        const isAuthorized = data.success;
 
         if (isAuthorized) {
             localStorage.setItem("isAuthorized", true);
             window.location.href = "/";
         } else {
-            alert("Неверный логин или пароль");
+            showModal(); // Показываем всплывающее окно с сообщением об ошибке
         }
     } else {
-        alert("Ошибка при авторизации");
+        showModal(); // Показываем всплывающее окно с сообщением об ошибке
     }
 });
+
+// Отображаем всплывающее окно
+function showModal() {
+    const errorModal = document.getElementById("errorModal");
+    errorModal.style.display = "block";
+
+    // Закрываем всплывающее окно через 5 секунд
+    setTimeout(() => {
+        errorModal.style.display = "none";
+    }, 5000);
+
+    // Добавляем обработчик события для кнопки закрытия
+    const closeBtn = document.querySelector(".close-btn");
+    closeBtn.addEventListener("click", () => {
+        errorModal.style.display = "none";
+    });
+}

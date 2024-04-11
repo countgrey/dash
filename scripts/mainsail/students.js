@@ -163,7 +163,7 @@ function getStudentsData()
                             "style": {
                                 "align": "center",
                                 "color": "rgba(153,153,153,1)",
-                                "fontSize": "18px",
+                                "fontSize": "16px",
                                 "fontWeight": "normal",
                                 "fontStyle": "normal",
                                 "textOutline": false

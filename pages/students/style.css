@@ -100,3 +100,41 @@
     text-align: right;
     padding-right: 1%;
 }
+table {
+    padding: 5px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    font-size: 25px;
+    border: 0.3px solid #48494d;
+    background: #24272e;
+    color: #898b92;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', sans-serif;
+    text-align: center;
+}
+
+th {
+    font-size: 35px;
+}
+
+.top {
+    position: sticky;
+    top: 0px;
+}
+
+td:nth-child(1) {
+    text-align: left;
+    width: 20%;
+}
+
+td:nth-child(n+2) {
+    width: 20%;
+}
+
+#date {
+    position: absolute;
+}

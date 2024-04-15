@@ -192,4 +192,5 @@ function SubdidCharts(array)
             ]
         }]
     });
+    console.log(kpiFinansChart)
 }

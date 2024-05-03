@@ -20,11 +20,11 @@ getClassrooms()
 
 function drawCabinets(classrooms, floor) {
     var locationsAndTypes = {
-        101: {location: [600, 400], type: "Поточный"},
+        101: {location: [600, 350], type: "Поточный"},
         102: {location: [500, 450], type: "Обычный"},
-        104: {location: [350, 450], type: "Компьютерный"},
+        104: {location: [370, 450], type: "Компьютерный"},
         105: {location: [300, 450], type: "Компьютерный"},
-        106: {location: [200, 400], type: "Поточный"},
+        106: {location: [170, 350], type: "Поточный"},
         107: {location: [300, 350], type: "Компьютерный"}
     };
 
@@ -75,4 +75,24 @@ function drawCabinets(classrooms, floor) {
             return 'red';
         }
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.floor-btn');
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            var floorNumber = parseInt(this.getAttribute('data-floor'));
+            changeFloor(floorNumber);
+        });
+    });
+    changeFloor(1);
+});
+
+function changeFloor(floorNumber) {
+    var buttons = document.querySelectorAll('.floor-btn');
+    buttons.forEach(function(btn) {
+        btn.classList.remove('active'); // Убираем класс active у всех кнопок
+    });
+    var button = document.querySelector('.floor-btn[data-floor="' + floorNumber + '"]');
+    button.classList.add('active'); // Добавляем класс active к нажатой кнопке
 }

@@ -30,8 +30,8 @@
 }
 
 .room {
-    width: 30px;
-    height: 30px;
+    max-width: 60px; /* Изменяем ширину комнаты на 8% от ширины экрана при ширине экрана до 768px */
+    max-height: 60px; /* Также изменяем высоту комнаты */
     border: 2px solid black;
     position: absolute;
     display: flex;
@@ -42,12 +42,44 @@
     color: black;
     cursor: pointer; /* Добавляем указатель при наведении */
 }
+
+@media screen and (max-width: 2000px) {
+    .room {
+        width: 5%; /* Изменяем ширину комнаты на 8% от ширины экрана при ширине экрана до 768px */
+        height: 7%; /* Также изменяем высоту комнаты */
+    }
+    .stream-room {
+        width: 10%;
+        height: 14%;
+    }
+}
+@media screen and (max-width: 990px) {
+    .room {
+        width: 6%; /* Изменяем ширину комнаты на 8% от ширины экрана при ширине экрана до 768px */
+        height: 8%; /* Также изменяем высоту комнаты */
+    }
+    .stream-room {
+        width: 12%;
+        height: 16%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .room {
+        width: 8%; /* Изменяем ширину комнаты на 10% от ширины экрана при ширине экрана до 480px */
+        height: 10%; /* Также изменяем высоту комнаты */
+    }
+    .stream-room {
+        width: 16%;
+        height: 20%;
+    }
+}
 .computer-room {
     border-color: blue;
 }
 .stream-room {
-    width: 50px;
-    height: 70px;
+    max-width: 100px;
+    max-height: 140px;
 }
 .tooltip {
     position: absolute;
@@ -55,4 +87,37 @@
     color: white;
     padding: 5px;
     display: none; /* По умолчанию подсказка скрыта */
+}
+
+.floor-menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Определяем стили для всех кнопок */
+.floor-btn {
+    background-color: #33333300;
+    color: rgba(255, 255, 255, 0.233);
+    font-size: x-large;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 6px; /* добавляем округление углов */
+}
+
+/* Определяем стили для кнопок при наведении */
+.floor-btn:hover {
+    background-color: #555;
+}
+
+
+/* Определяем дополнительные стили для активной кнопки */
+.floor-btn.active {
+    background-color: rgba(65, 76, 233, 0.548); /* изменяем цвет активной кнопки */
+    font-size: xx-large; /* изменяем размер шрифта при активации */
+    color: white; /* изменяем цвет текста */
 }

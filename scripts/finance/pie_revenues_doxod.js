@@ -101,7 +101,7 @@ function fetchData(){
 // Функция для форматирования числа в тысячи
 function formatNumber(number) {
     if (number >= 1000) {
-        let formattedNumber = (number / 1000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' тыс.';
+        let formattedNumber = (number / 1000000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' млн.';
         return formattedNumber;
     } else {
         return number.toString();
@@ -112,7 +112,7 @@ function formatNumber(number) {
 function calculateTotal(data) {
     let total = 0;
     for (let i = 0; i < data.length; i++) {
-        total += parseFloat(data[i].replace(/\s/g, '').replace(/\./g, '').replace(',', '.'));
+        total += parseFloat(data[i].replace(/\s/g, '').replace(',', '.'));
     }
     return total;
 }

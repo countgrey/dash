@@ -47,9 +47,13 @@ td:nth-child(2){
 }
 
 .dropdown{
-    border: 0.1em solid black;
+    font-size: medium;
+    font-weight: bold;
+    border: 0.1em solid rgba(134, 134, 134, 0.315);
     width: 10em;
     margin-bottom: 1em;
+    background-color: #25272f;
+    color: white;
 }
 
 .dropdown .title{

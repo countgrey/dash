@@ -6,6 +6,13 @@ range = '2024 год!C40:J53';
 
 url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
+function formatNumber(num) {
+    if (Math.abs(num) >= 1000000) {
+        return (num / 1000000).toFixed(1) + ' млн.';
+    }
+    return num;
+}
+
 
 fetch(url)
     .then(response => response.json())
@@ -17,7 +24,8 @@ fetch(url)
 
 
         for (let month = 1; month <= 12; month++) {
-            categories.push(data.values[month][0])
+            var FoormattedDate = data.values[month][0].substring(0, 3);
+            categories.push(FoormattedDate);
         }
 
         for (let index = 1; index <= data.values[0].length-2; index++) {
@@ -106,6 +114,9 @@ fetch(url)
                 "plotBands": [],
                 "stackLabels": {
                     "enabled": true,
+                    "formatter": function() {
+                        return formatNumber(this.total);
+                    },
                     "style": {
                         "align": "center",
                         "color": "rgba(153,153,153,1)",

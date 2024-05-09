@@ -36,11 +36,20 @@ function buildTable(data) {
     const headerRow = document.createElement('tr');
     headers.forEach(headerText => {
         const headerCell = document.createElement('th');
-        headerCell.textContent = headerText;
+        if (headerText !== "Объект") {
+            headerCell.textContent = headerText;
+            const span = document.createElement('span');
+            span.textContent = ' .тыс';
+            span.style.fontSize = '10px'; // Установка маленького размера шрифта
+            span.style.lineHeight = '1';
+            span.style.display = 'block';
+            headerCell.appendChild(span);
+        } else {
+            headerCell.textContent = headerText;
+        }
         headerRow.appendChild(headerCell);
     });
     table.appendChild(headerRow);
-
     // Начинаем с i = 1, чтобы пропустить первую строку с заголовками
     for (let i = 1; i < data.values.length; i++) {
         const rowData = data.values[i];
@@ -52,7 +61,7 @@ function buildTable(data) {
             const value = cellData.replace(/\s/g, '').replace(',', '.');
             // Сокращение чисел до тысячи
             if (!isNaN(value)) {
-                const formattedValue = parseFloat(value) >= 1000 ? (parseFloat(value) / 1000).toFixed(0) + ' тыс.' : value;
+                const formattedValue = parseFloat(value) >= 1000 ? (parseFloat(value) / 1000).toFixed(0) + '' : value;
                 cell.textContent = formattedValue;
             } else {
                 cell.textContent = value; // Оставляем как есть, если не число
@@ -172,12 +181,5 @@ function drawPieChart(data, headers, totalServices) {
     });
 }
 
-function formatNumber(number) {
-    if (number >= 1000) {
-        return (number / 1000).toFixed(0) + ' тыс.';
-    } else {
-        return number.toString();
-    }
-}
 
 fetchDataAndBuildTable();

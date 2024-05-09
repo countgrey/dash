@@ -113,6 +113,9 @@ fetch(url)
                 "plotBands": [],
                 "stackLabels": {
                     "enabled": true,
+                    "formatter": function() {
+                        return formatNumber(this.total);
+                    },
                     "style": {
                         "align": "center",
                         "color": "rgba(153,153,153,1)",

@@ -135,7 +135,7 @@ function getStudentsData()
                             }];
                 function getSubtitle() {
     
-                return `<span style="font-size: 25px">${totalStudents}</span>`}
+                return `<span style="font-size: 2.5vmin">${totalStudents}</span>`}
                 
                 var chart1 = Highcharts.chart('studentsPie', {
     chart: {

@@ -50,8 +50,11 @@
 			border: 0.5px solid black;
 			background: #25272f;
 			transition: transform .2s;
-			padding-bottom: 10px;
+			padding-left: 20px; /* Добавьте отступы для внутреннего пространства */
+			padding-right: 20px;
+			box-sizing: border-box;
 			animation: cardEnter 0.2s ease 0s 1 normal none;
+			
 		}
 
 		@keyframes cardEnter {

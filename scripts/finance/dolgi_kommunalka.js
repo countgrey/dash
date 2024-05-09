@@ -46,6 +46,7 @@ async function LoadDolgiData(selectedData = 0, loadThing = false)
     {
         let key = keys[i];
         PutInHtml(key, _dolgiData.values[dataEnum[key]][selectedData]);
+
     }
 
     if (loadThing) {

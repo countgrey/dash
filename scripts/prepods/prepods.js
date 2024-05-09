@@ -1,4 +1,13 @@
 // Изменяем функцию загрузки Google таблицы и обработки данных
+var sumPie1 = 0;
+var sumPie2 = 0;
+function getSubtitlePrepods() {
+    
+    return `<span style="font-size: 3vmin">${sumPie1}</span>`}
+
+    function getSubtitleAge() {
+    
+        return `<span style="font-size: 2.5vmin">${sumPie2}</span>`}
 function loadGoogleSheet() {
     // ID вашей таблицы Google
     var spreadsheetId = '1gwyyF2hdtwDjF4AG3xuaBW2O6Y0GXz0TvvLT5-kdfU4';
@@ -13,7 +22,7 @@ function loadGoogleSheet() {
     // URL для запроса к Google Sheets API для загрузки данных для гистограммы
     var histogramUrl = `https://sheets.googleapis.com/v4/spreadsheets/1gwyyF2hdtwDjF4AG3xuaBW2O6Y0GXz0TvvLT5-kdfU4/values/1!P4:Q15?key=AIzaSyB8W0lONxmOxcPGzgrMCrbo3p2_OzrieaI`;
     // URL для запроса к Google Sheets API для загрузки данных для круговой диаграммы
-    
+
 
     // Делаем AJAX запрос к API для загрузки данных в таблицу
     $.ajax({
@@ -58,6 +67,8 @@ function loadGoogleSheet() {
                     var category = row[0];
                     var value = parseFloat(row[1]);
                     educationData.push({ name: category, y: value });
+                    sumPie1 += value;
+                    console.log(sumPie1);
                 }
                 // Создаем серию данных для круговой диаграммы
                 var series_ = [{
@@ -82,10 +93,11 @@ function loadGoogleSheet() {
                     },
                     subtitle: {
                             useHTML: true,
-                            text: "",
+                            text: getSubtitlePrepods(),
                             floating: true,
                             verticalAlign: 'middle',
-                            y: -8
+                            y: 15,
+                            x: -139
                         },
                     xAxis: {
                         type: 'datetime'
@@ -308,6 +320,8 @@ $.ajax({
                 var category = row[0];
                 var value = parseFloat(row[1]);
                 educationData.push({ name: category, y: value });
+                sumPie2 += value;
+                console.log(sumPie2);
             }
             // Создаем серию данных для круговой диаграммы
             var series_ = [{
@@ -331,10 +345,11 @@ $.ajax({
                 },
                  subtitle: {
                 useHTML: true,
-                text: 11,
+                text: getSubtitleAge(),
                 floating: true,
                 verticalAlign: 'middle',
-                y: -18
+                y: 13,
+                x: -140
             },
                 legend: {
                     "marginTop":50,

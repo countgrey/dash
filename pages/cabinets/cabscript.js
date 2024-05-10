@@ -37,6 +37,16 @@ let cabinetData =
     
 }
 
+fetch('myAss.json')
+  .then(response => response.json())
+  .then(data => {
+    // Work with the JSON data here
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
 /*
 function getClassrooms() {
     return fetch('http://127.0.0.1:5000/classrooms')

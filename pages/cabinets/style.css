@@ -33,7 +33,7 @@
     max-width: 60px; /* Изменяем ширину комнаты на 8% от ширины экрана при ширине экрана до 768px */
     max-height: 60px; /* Также изменяем высоту комнаты */
     border: 2px solid black;
-    position: absolute;
+    position:absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +41,10 @@
     border-radius: 5px;
     color: black;
     cursor: pointer; /* Добавляем указатель при наведении */
+}
+
+.map{
+    position: relative;
 }
 
 @media screen and (max-width: 2000px) {

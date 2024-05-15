@@ -1,20 +1,8 @@
 let classrooms_ = void 0;
+let curFloor = 1;
 
 async function LoadCabinetsData()
 {
-    /*
-    fetch('./myAss.json')
-        .then(response => response.json())
-            .then(_data_ => {
-            // Work with the JSON data here
-            //console.log(_data_["floor"]);
-            return _data_["floor"];
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
-    */
-
     const dataShit = await fetch("./myAss.json");
     const fuck = await dataShit.json();
     return fuck["floor"];
@@ -37,11 +25,23 @@ async function drawCabinets(floor) {
 
     if(classrooms !== undefined)
     {
+        //РЕАЛЬНЫЕ размеры экрана пользователя
+        let deviceWidth = window.screen.width;
+        let deviceHeight = window.screen.height;
+
+        //Размер окна
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+
+        //Вычисляем процент на сколько уменьшить ебучие кабинеты
+        let neededWidth = windowWidth / deviceWidth;
+        let neededHeight = windowHeight / deviceHeight;
+
         classrooms.forEach(function(classroom) {
             var room = document.createElement('div');
             room.className = 'room';
-            room.style.left = classroom.location[0] + 'px';
-            room.style.top = classroom.location[1] + 'px';
+            room.style.left = (classroom.location[0] * neededWidth) + 'px';
+            room.style.top = (classroom.location[1] * neededHeight) + 'px';
             room.style.backgroundColor = getColor(classroom.students, classroom.capacity);
             room.innerText = classroom.cabinet;
             if (classroom.type === 'Компьютерный') {
@@ -79,7 +79,7 @@ async function drawCabinets(floor) {
 
 }
 
-drawCabinets(1);
+drawCabinets(curFloor);
 
 document.addEventListener('DOMContentLoaded', function() {
     var buttons = document.querySelectorAll('.floor-btn');
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(event) {
             var floorNumber = parseInt(this.getAttribute('data-floor'));
             //console.log(floorNumber)
+            curFloor = floorNumber;
             changeFloor(floorNumber);
         });
     });
@@ -106,3 +107,8 @@ function changeFloor(floorNumber) {
     }
     drawCabinets(floorNumber);
 }
+
+
+window.addEventListener("resize", function() {
+    changeFloor(curFloor);
+});

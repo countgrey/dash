@@ -46,7 +46,7 @@ td:nth-child(2){
     max-height: 0 !important;
 }
 
-.dropdown{
+.dropdown {
     font-size: medium;
     font-weight: bold;
     border: 0.1em solid rgba(134, 134, 134, 0.315);
@@ -54,7 +54,19 @@ td:nth-child(2){
     margin-bottom: 1em;
     background-color: #25272f;
     color: white;
+    flex: 0 0 auto; /* Не расширяется, остается фиксированной ширины */
+    margin-left: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s, border-color 0.3s; /* добавляем плавность для фона и обводки */
 }
+
+.dropdown:hover {
+    background-color: #2d2f37; /* светлее значение фона при наведении */
+    border-color: rgba(255, 255, 255, 0.5); /* более яркая обводка при наведении */
+    cursor: pointer; /* изменение курсора на указатель */
+}
+
+
 
 .dropdown .title{
     margin: .3em .3em .3em .3em;    
@@ -88,4 +100,13 @@ td:nth-child(2){
 
 .rotate-90{
     transform: rotate(90deg);
+}
+
+.nnnnline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.title {
+    flex: 1;
 }

@@ -17,7 +17,8 @@ fetch(url)
 
         
         for (let month = 1; month <= 12; month++) {
-            categories.push(data.values[month][0])
+            var FoormattedDate = data.values[month][0].substring(0, 3);
+            categories.push(FoormattedDate);
         }
 
         for (let index = 1; index <= data.values[0].length-2; index++) {

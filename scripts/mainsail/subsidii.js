@@ -99,7 +99,7 @@ var kpiFinans = new Highcharts.Chart({
     series: [
     {
         "id": "\"stud_03_Subsidii_Pokazateli\",\"Postuplenie\"",
-        "name": "Поступление",
+        "name": "Доход",
         "color": "rgba(112,99,250,1)",
         "marker": {
             "radius": 0.1,
@@ -190,3 +190,4 @@ var kpiFinans = new Highcharts.Chart({
         ]
     }]
 });
+console.log(kpiFinans)

@@ -48,13 +48,13 @@
 		</div>
 
 		<script src="../../scripts/finance/subsidii_finance.js"></script>
-		<script src="../../scripts/mainsail/kpiSubsidii.js"></script>
+		<!--<script src="../../scripts/mainsail/kpiSubsidii.js"></script>-->
 		<script src="../../scripts/finance/komunal_yslugi.js"></script>
 		<script src="../../scripts/finance/pie_revenues_doxod.js"></script>
 
 		<div class="gridBox">
 			<div id="container1" class="gridComponent">
-				<script src="../scripts/mainsail/kpiSubsidii.js"></script>
+				<script src="../../scripts/mainsail/kpiSubsidii.js"></script>
 	    		<div class="title"><h2>Показатели</h2></div>
 	    		<div class="kpi" style="padding: 1px; margin-top: 0px;">
 	    			<div class="kpiText" style="padding: 0px; margin-left: 5px; align-self: center;">По субсидиям</div>
@@ -91,43 +91,36 @@
 	    		<div class="title"><h2>Иные субсидии</h2></div>
 	    		<div class="cool-table" id="table-container-inie"></div>
 	    	</div>
-	    	<div id="container4" class="gridComponent">
-	    		<div class="title"><h2>Субсидии</h2></div>
-	    		<div id="subsidii-dohod-pie" style="height: 250px;margin-top: 30px;"><script src="../../scripts/finance/subsidii_pie.js"></script></div>
-	    	</div>
 
 	    	<div id="container5" class="gridComponent">
 	    		<div class="title"><h2>Долги по группам</h2></div>
-	    		  		
-		    		<div class='dropdown'>
+	    		  	
 
-							<div class='title pointerCursor'>23.12.23<i class="fa fa-angle-right"></i></div>
-							<div class='menu pointerCursor hide'>
-									<div class='option' id='0'>23.12.23</div>
-									<div class='option' id='1'>03.01.24</div>
-									<div class='option' id='2'>29.01.24</div>
-									<div class='option' id='3'>19.02.24</div>
-							</div>
+					<select id = "dropdown2_The_Movie", class="dropdown">
 
-					</div>
+                    </select>
 					
+                    <script src="../../scripts/finance/dolgi_highChart.js"></script>
 					<script src="../../scripts/finance/dolgi_kommunalka.js"></script>
 	    		<div class="kpi">
 	    			<div class="kpiText">Обучение основное: </div>
-	    			<div class="kpiValue"><span id="edu-main"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    			<div class="kpiValue"><span id="MainEdu"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Обучение дополнительное: </div>
-	    			<div class="kpiValue"><span id="edu-dop"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    			<div class="kpiValue"><span id="DopEdu"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
 	    		</div>
 	    		<div class="kpi">
 	    			<div class="kpiText">Проживание в общежитии: </div>
-	    			<div class="kpiValue"><span id="edu-obshaga"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    			<div class="kpiValue"><span id="ObsEdu"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
 	    		</div>
 	    		<div class="kpi" style="color: red">
 	    			<div class="kpiText">Итого: </div>
-	    			<div class="kpiValue"><span id="total"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
+	    			<div class="kpiValue"><span id="Total"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span></div>
 	    		</div>
+
+                <div id="dolgi-huigi" style="height: 200px;"></div>
+
 	    	</div>
 
 

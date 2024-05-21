@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кадровый состав</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="prepods_style.css">
+    <link rel="stylesheet" href="..\..\style.css">
+    <link type="image/x-icon" href="https://oksei.ru/public/img/logo.png" rel="icon">
+    <style type="text/css">
+        .title {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainTitle">    
+        <a href="../../index.html"><img src="https://oksei.ru/public/img/logo.png" style="height:80px; width: auto; margin-left: 10px; padding: 10px;"></a>
+        <h1 style="align-self: left; margin-left: 15px; padding: 5px;">ГАПОУ "ОКЭИ" Кадровый состав</h1>
+    </div>
+    <div class="container" >
+        <div class="column1">
+            <div class="cell">
+                <div class="title" style="height: 10px;">Образование</div>
+                <div id="education"  style="height: 290px"></div>
+            </div>
+            <div class="cell">
+                <div class="title" style="height: 30px;">Ставка</div>
+                <div id="container"  style="height: 350px"></div>
+            </div>
+            <div class="cell">
+                <div class="title" style="height: 30px;">Возраст</div>
+                <div id="educationPie"  style="height: 290px"> </div>
+            </div>
+        </div>
+        <div class="column2">
+            <div class="cell">
+                <table id="perssonaleTable" class="perssonale-table" >
+                    <thead>
+                        <tr class="top">
+                            <th>ФИО</th>
+                            <th>Должность</th>
+                            <th>Отдел</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="..\..\scripts\prepods\prepods.js"></script>
+</body>
+</html>

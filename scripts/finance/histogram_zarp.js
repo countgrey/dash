@@ -141,7 +141,7 @@ fetch(url)
                             "borderColor": "transparent"
                         },
                         "unselect": {
-                            "alpha": 0.31999999999999995
+                            "alpha": 0.31999999999999995 //WTF???
                         }
                     },
                     "stacking": "normal",

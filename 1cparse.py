@@ -5,7 +5,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 # Сюда путь к бд
-CONSTR = 'File="C:\\Users\\admin\\Desktop\\InfoBase2";Usr="Administrator";Pwd="qwe123"'
+CONSTR = 'File="C:\\Users\\admin\\Documents\\InfoBase2";Usr="Administrator";Pwd="qwe123"'
 
 
 def init():
@@ -22,15 +22,27 @@ def database_fetch(querytxt):
     return query_result
 
 
+# ----------------------------Данные по преподам-----------------------------------
 def get_teachers_data():
-    pass
+    querytxt = f''''''
+    query_result = database_fetch(querytxt)
+    teachers = []
+    while query_result.next():
+        pass
 
+    return teachers
 
+# ----------------------------Данные по студентам----------------------------------
 def get_students_data():
-    pass
+    querytxt = f''''''
+    query_result = database_fetch(querytxt)
+    students = []
+    while query_result.next():
+        pass
 
+    return students
 
-# ---------------------------Данные по кабинетам--------------------------------
+# ----------------------------Данные по кабинетам----------------------------------
 def get_classroom_data(date):
     querytxt = f'''SELECT * FROM Документ.Занятие
                    JOIN Документ.Занятие.Студенты
@@ -113,7 +125,6 @@ for lesson_number, lesson_data in enumerate(lessons):
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route('/getLessonsData', methods=['GET'])
 def getLessonsData():
     return jsonify(get_classroom_data(datetime.date.today()))
@@ -136,5 +147,14 @@ def getClassroomsData():
 
     return jsonify(classrooms)
 
+@app.route('/getTeachersData', methods=['GET'])
+def getTeachersData():
+    teachers = get_teachers_data()
+    return jsonify(teachers)
+
+@app.route('/getStudentsData', methods=['GET'])
+def getStudentsData():
+    students = get_students_data()
+    return jsonify(students)
 
 app.run(port=5000, debug=True)

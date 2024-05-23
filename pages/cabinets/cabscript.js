@@ -3,7 +3,16 @@ let curFloor = 1;
 
 async function LoadCabinetsData()
 {
-    const dataShit = await fetch("./myAss.json");
+  url = 'http://localhost:5000/getClassroomsData';
+  fetch(url)
+    .then(response => response.json())
+    .then(data => 
+    {
+        console.log(data);    
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+  const dataShit = await fetch("./myAss.json");
     const fuck = await dataShit.json();
     return fuck["floor"];
 }
@@ -20,8 +29,6 @@ async function drawCabinets(floor) {
 
     var map = document.getElementById('map');
     var tooltip = document.getElementById('tooltip');
-
-    console.log(classrooms)
 
     if(classrooms !== undefined)
     {

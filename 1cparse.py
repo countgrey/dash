@@ -24,11 +24,12 @@ def database_fetch(querytxt):
 
 # ----------------------------Данные по преподам-----------------------------------
 def get_teachers_data():
-    querytxt = f''''''
+    querytxt = f'''SELECT * FROM Документ.Сотрудники WHERE Преподаватель = true'''
     query_result = database_fetch(querytxt)
     teachers = []
     while query_result.next():
-        pass
+        name = query_result.Физлицо.Наименование
+        teachers.append({'name': name})
 
     return teachers
 
@@ -59,11 +60,11 @@ def get_classroom_data(date):
     while query_result.next():
         lesson_number = query_result.НомерПары - 1
         group_name = query_result.Группа.Наименование
-        student_name = query_result.Студент.ФизЛицо.Наименование
+        student_name = query_result.Студент.ФизЛицо
         attendance = query_result.Явка
 
         if group_name not in lessons[lesson_number]:
-            lessons[lesson_number][group_name] = {"present": [], "absent": [], "classroom": ""}
+            lessons[lesson_number][group_name] = {"present": [], "absent": [], "classroom": "", "teacher": ""}
 
         if attendance:
             lessons[lesson_number][group_name]["present"].append(student_name)
@@ -73,6 +74,7 @@ def get_classroom_data(date):
     # Второй запрос 💀💀💀💀 (добавляет кабинеты к занятиям) 
 
     querytxt = f'''SELECT * FROM Документ.РасписаниеНаДату
+
                    JOIN Документ.РасписаниеНаДату.Расписание
                    ON Документ.РасписаниеНаДату.Ссылка = Документ.РасписаниеНаДату.Расписание.Ссылка
 
@@ -85,41 +87,19 @@ def get_classroom_data(date):
     while query_result.next():
         lesson_number = query_result.НомерПары - 1
         group_name = query_result.УчебнаяГруппа.Наименование
+        teacher = query_result.Преподаватель.Физлицо.Наименование
         classroom = "100"
         if query_result.Аудитория:
             classroom = query_result.Аудитория.Наименование
         
         lessons[lesson_number][group_name]["classroom"] = classroom
+        lessons[lesson_number][group_name]["teacher"] = teacher
 
 
 
     return lessons
 
 
-# --------------------------------Вывод в консоль------------------------------------------------
-lessons = get_classroom_data(datetime.date.today())
-for lesson_number, lesson_data in enumerate(lessons):
-    print("=" * 20)
-    print(f"Пара {lesson_number + 1}:")
-    for group_name, student_groups in lesson_data.items():
-        present_students = student_groups["present"]
-        absent_students = student_groups["absent"]
-        classroom = student_groups["classroom"]
-        num_students = len(present_students) + len(absent_students)
-
-        print(
-            f"  {group_name} ({num_students} Студентов, {len(present_students)} присуствуют, {len(absent_students)} отсутствуют) - Кабинет {classroom}")
-
-        if present_students:
-            print("    Присутствующие:")
-            for student in present_students:
-                print(f"      - {student}")
-
-        if absent_students:
-            print("    Отсутствующие:")
-            for student in absent_students:
-                print(f"      - {student}")
-    print("=" * 20)
 
 # -------------------Web API--------------------
 app = Flask(__name__)
@@ -141,6 +121,7 @@ def getClassroomsData():
             classroom_data = {
                 'classroom': data['classroom'],
                 'group': group,
+                'teacher': data['teacher'],
                 'present': len(data['present'])
             }
             classrooms[lessons.index(lesson)].append(classroom_data)

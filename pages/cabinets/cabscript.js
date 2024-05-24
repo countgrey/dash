@@ -1,18 +1,17 @@
 let classrooms_ = void 0;
+let dataClassrooms = void 0;
 let curFloor = 1;
+
+async function LoadMoreCabinetsData()
+{
+    url = 'http://localhost:5000/getClassroomsData';
+    const dataNOW = await fetch(url);
+    return dataNOW.json();
+}
 
 async function LoadCabinetsData()
 {
-  url = 'http://localhost:5000/getClassroomsData';
-  fetch(url)
-    .then(response => response.json())
-    .then(data => 
-    {
-        console.log(data);    
-    })
-    .catch(error => console.error('Error fetching data:', error));
-
-  const dataShit = await fetch("./myAss.json");
+    const dataShit = await fetch("./myAss.json");
     const fuck = await dataShit.json();
     return fuck["floor"];
 }
@@ -23,6 +22,13 @@ async function drawCabinets(floor) {
     {
         console.log("Loading Classroms");
         classrooms_ = await LoadCabinetsData();
+    }
+
+    if(dataClassrooms === undefined)
+    {
+        console.log("loading more things");
+        dataClassrooms = await LoadMoreCabinetsData();
+        //console.log(dataClassrooms)
     }
 
     let classrooms = classrooms_[floor-1];
@@ -45,6 +51,13 @@ async function drawCabinets(floor) {
         let neededHeight = windowHeight / deviceHeight;
 
         classrooms.forEach(function(classroom) {
+            let curPara = 0;
+            //TODO: Брать инфу о паре когда она идет
+            if(classroom.cabinet == dataClassrooms[curPara][0].classroom)
+            {
+                classroom.groups = dataClassrooms[curPara][0].group;
+                classroom.students = dataClassrooms[curPara][0].present;
+            }
             var room = document.createElement('div');
             room.className = 'room';
             room.style.left = (classroom.location[0] * neededWidth) + 'px';

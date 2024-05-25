@@ -1,3 +1,4 @@
+
 var tooltip = {
   useHTML: true,
   backgroundColor: "white",
@@ -51,19 +52,20 @@ function getSubtitle() {
     return `<span style="font-size: 22px; color: #999999;">${totalNumber}</span>`;
 }
 
-var prepodsPie	= new Highcharts.Chart({
+var prepodsPie  = new Highcharts.Chart({
     chart: {
         renderTo: 'PrepodsPie',
         type: "pie",
     },
     tooltip: tooltip,
     title: {
-    	text: "",
+        text: "",
+        padding: "left",
         
     },
     credits:
     {
-    	enabled: false
+        enabled: false
     },
 
     subtitle: {
@@ -108,7 +110,7 @@ var prepodsPie	= new Highcharts.Chart({
             "showInLegend": true,
             "animation": true,
             "borderWidth": 0,
-
+            // "center": ["50%", "30%"],
         }
     },
 

@@ -4,7 +4,17 @@ function getStudentsData()
 
         const apiKey = 'AIzaSyARrFF4JLqZrtrAEjCOPvcw1PJtyizHuRk';
 
-        const range = 'Sheet1!C1:F64';
+        let range = 'Sheet1!C1:F64';
+        if (localStorage.getItem("isAuthorized") === "true") {
+            range = 'Sheet1!C1:j64';
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('th').forEach(th => {
+                    th.removeAttribute('style');
+                    th.style.fontSize = '20px';
+                });
+            });
+        
+        }
 
         const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 

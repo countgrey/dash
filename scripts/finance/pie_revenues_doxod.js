@@ -11,11 +11,11 @@ function fetchData(){
     fetch(url1)
         .then(response => response.json())
         .then(heads => {
-            console.log(heads);
+            // console.log(heads);
             fetch(url2)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     let categories = data.values[0];
                     let seriesData = [];
 

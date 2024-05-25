@@ -21,10 +21,13 @@
 		<div class="mainTitle">
 			<img src="https://oksei.ru/public/img/logo.png" style="height:60px; width: auto; margin-left: 10px; padding: 10px;">
 			<h1 style="align-self: left; margin-left: 10px; padding: 5px;">ГАПОУ "ОКЭИ"</h1>
+			<button id="auth-button" class="auth-btn" style="margin: 10px; margin-left: auto; padding: 5px;">Авторизация</button>
+			<script src="scripts/mainsail/login-button.js"></script>
 		</div>
 
 		<div class="gridBox">
 	    	<div id="container1" class="gridComponent">
+                <script src="scripts/mainsail/kpiSubsidiiHighChart.js"></script>
 	    		<script src="scripts/mainsail/kpiSubsidii.js"></script>
 	    		<a href = "pages/finance/finance.html"><div class="title"><h2>Финансы</h2></div></a>
 	    		<div class="kpi">
@@ -39,7 +42,7 @@
 	    			<div class="kpiText">Остаток: </div>
 	    			<div class="kpiValue"><span id="amountOfOstatok"><div class="custom-loader" id="fixTrobber"></div></span><span style="font-size: 14px; color: rgb(196,193,193)">&nbsp;&nbsp;&nbsp;руб.</span>  <span style="border: 0; outline: none; background:transparent; font-size: 29px; color: #808080; vertical-align: up;">●&nbsp;&nbsp;</span><br><span id="date" style="font-size: 10px; color: rgb(196,193,193); top: 30px;"></span></div>
 	    		</div></a>
-		    	<div id="FinanceGraphic" style="height: 250px;margin-top: 30px;"><script src="scripts/mainsail/subsidii.js"></script></div>
+		    	<div id="FinanceGraphic" style="height: 250px;margin-top: 30px;"></div>
 	    	</div>
 
 	    	<div id="container2" class="gridComponent">
@@ -50,7 +53,7 @@
 	    	</div>
 
 	    	<div id="container3" class="gridComponent">
-	    		<div class="title"><h2>Кадровый состав</h2></div>
+	    		<a href="pages/prepods/prepods.html"><div class="title"><h2>Кадровый состав</h2></div></a>
 
 	    		<div id="PrepodsPie" style="height: 350px;"><script src="scripts/mainsail/prepods.js"></script></div>
 	    	</div>

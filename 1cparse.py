@@ -5,26 +5,23 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 # Сюда путь к бд
-CONSTR = 'File="C:\\Users\\champ\\Desktop\\InfoBase2";Usr="Administrator";Pwd="qwe123"'
+CONSTR = 'File="C:\\Users\\admin\\Documents\\InfoBase2";Usr="Administrator";Pwd="qwe123"'
 
-
-def init():
+def database_fetch(querytxt):
     # Создать подключение
     pythoncom.CoInitialize()
     V83 = win32com.client.Dispatch('V83.COMConnector').Connect(CONSTR)
     print('DBconnect done')
-    return V83
 
-def database_fetch(querytxt):
     # Запрос в бд
-    query = init().NewObject('Query', querytxt)
+    query = V83.NewObject('Query', querytxt)
     query_result = query.Execute().Choose()
     return query_result
 
 
 # ----------------------------Данные по преподам-----------------------------------
 def get_teachers_data():
-    querytxt = f'''SELECT * FROM Документ.Сотрудники WHERE Преподаватель = true'''
+    querytxt = f'''SELECT * FROM Документ.Сотрудники WHERE Преподаватель = TRUE'''
     query_result = database_fetch(querytxt)
     teachers = []
     while query_result.next():
@@ -81,8 +78,7 @@ def get_classroom_data(date):
                    WHERE ДатаРасписания BETWEEN DATETIME({date.year}, {date.month}, {date.day}, 0, 0, 0)
                    AND DATETIME({date.year}, {date.month}, {date.day}, 23, 59, 59)'''
 
-    query = init().NewObject('Query', querytxt)
-    query_result = query.Execute().Choose()
+    query_result = database_fetch(querytxt)
 
     while query_result.next():
         lesson_number = query_result.НомерПары - 1
@@ -104,11 +100,6 @@ def get_classroom_data(date):
 # -------------------Web API--------------------
 app = Flask(__name__)
 CORS(app)
-
-@app.route('/getLessonsData', methods=['GET'])
-def getLessonsData():
-    return jsonify(get_classroom_data(datetime.date.today()))
-
 
 @app.route('/getClassroomsData', methods=['GET'])
 def getClassroomsData():

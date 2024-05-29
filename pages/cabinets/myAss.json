@@ -1,5 +1,5 @@
 {
-    "floor" : [
+  "floor": [
       [
         {"cabinet" : 101, "location": [600, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
         {"cabinet" : 102, "location": [500, 450], "type": "Обычный", "capacity": 30, "students": 0, "groups": []},

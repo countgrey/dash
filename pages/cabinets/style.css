@@ -123,3 +123,67 @@
     font-size: xx-large; /* изменяем размер шрифта при активации */
     color: white; /* изменяем цвет текста */
 }
+
+.pairs-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.pair-label {
+    margin-right: 20px;
+    font-size: x-large;
+    color: rgba(255, 255, 255, 0.233);
+}
+
+.pair-number {
+    margin: 0 10px;
+    padding: 5px;
+    background-color: #33333300;
+    color: rgba(255, 255, 255, 0.233);
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pair-number.active {
+    background-color: rgba(65, 76, 233, 0.548); /* изменяем цвет активного номера */
+    color: white;
+    font-size: xx-large;
+}
+
+.floor-display {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: large;
+    justify-content: center;
+}
+
+.floor-label {
+    margin-right: 20px;
+    font-size: xx-large;
+    color: rgba(255, 255, 255, 0.233);
+}
+
+.floor-number {
+    font-size: x-large;
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 5px;
+    background-color: #33333300;
+    color: rgba(255, 255, 255, 0.233);
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.floor-number:hover {
+    background-color: #555;
+}
+
+.floor-number.active {
+    background-color: rgba(65, 76, 233, 0.548); /* изменяем цвет активного номера */
+    color: white;
+    font-size: xx-large;
+}

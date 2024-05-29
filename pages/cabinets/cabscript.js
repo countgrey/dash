@@ -2,63 +2,55 @@ let classrooms_ = void 0;
 let dataClassrooms = void 0;
 let curFloor = 1;
 
-async function LoadMoreCabinetsData()
-{
-    url = 'http://localhost:5000/getClassroomsData';
+async function LoadMoreCabinetsData() {
+    const url = 'http://localhost:5000/getClassroomsData';
     const dataNOW = await fetch(url);
     return dataNOW.json();
 }
 
-async function LoadCabinetsData()
-{
+async function LoadCabinetsData() {
     const dataShit = await fetch("./myAss.json");
     const fuck = await dataShit.json();
     return fuck["floor"];
 }
 
 async function drawCabinets(floor) {
-
-    if(classrooms_ === undefined)
-    {
-        console.log("Loading Classroms");
+    if (classrooms_ === undefined) {
+        console.log("Loading Classrooms");
         classrooms_ = await LoadCabinetsData();
     }
 
-    if(dataClassrooms === undefined)
-    {
+    if (dataClassrooms === undefined) {
         console.log("loading more things");
         dataClassrooms = await LoadMoreCabinetsData();
-        //console.log(dataClassrooms)
     }
 
-    let classrooms = classrooms_[floor-1];
+    let classrooms = classrooms_[floor - 1];
 
-    var map = document.getElementById('map');
-    var tooltip = document.getElementById('tooltip');
+    const map = document.getElementById('map');
+    const tooltip = document.getElementById('tooltip');
 
-    if(classrooms !== undefined)
-    {
-        //РЕАЛЬНЫЕ размеры экрана пользователя
-        let deviceWidth = window.screen.width;
-        let deviceHeight = window.screen.height;
+    if (classrooms !== undefined) {
+        // Actual user screen dimensions
+        const deviceWidth = window.screen.width;
+        const deviceHeight = window.screen.height;
 
-        //Размер окна
-        let windowWidth = window.innerWidth;
-        let windowHeight = window.innerHeight;
+        // Window dimensions
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
-        //Вычисляем процент на сколько уменьшить ебучие кабинеты
-        let neededWidth = windowWidth / deviceWidth;
-        let neededHeight = windowHeight / deviceHeight;
+        // Calculate percentage to reduce classrooms
+        const neededWidth = windowWidth / deviceWidth;
+        const neededHeight = windowHeight / deviceHeight;
 
         classrooms.forEach(function(classroom) {
             let curPara = 0;
-            //TODO: Брать инфу о паре когда она идет
-            if(classroom.cabinet == dataClassrooms[curPara][0].classroom)
-            {
+            // TODO: Get info about the current period
+            if (classroom.cabinet === dataClassrooms[curPara][0].classroom) {
                 classroom.groups = dataClassrooms[curPara][0].group;
                 classroom.students = dataClassrooms[curPara][0].present;
             }
-            var room = document.createElement('div');
+            const room = document.createElement('div');
             room.className = 'room';
             room.style.left = (classroom.location[0] * neededWidth) + 'px';
             room.style.top = (classroom.location[1] * neededHeight) + 'px';
@@ -82,8 +74,9 @@ async function drawCabinets(floor) {
             map.appendChild(room);
         });
     }
+
     function getColor(students, capacity) {
-        var percentage = (students / capacity) * 100;
+        const percentage = (students / capacity) * 100;
         if (percentage < 25) {
             return 'green';
         } else if (percentage < 50) {
@@ -96,39 +89,64 @@ async function drawCabinets(floor) {
             return 'red';
         }
     }
-
 }
 
 drawCabinets(curFloor);
 
 document.addEventListener('DOMContentLoaded', function() {
-    var buttons = document.querySelectorAll('.floor-btn');
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            var floorNumber = parseInt(this.getAttribute('data-floor'));
-            //console.log(floorNumber)
-            curFloor = floorNumber;
-            changeFloor(floorNumber);
+    function setActiveFloor(floorNumber) {
+        // Remove active class from all floor numbers
+        document.querySelectorAll('.floor-number').forEach(function(element) {
+            element.classList.remove('active');
+        });
+
+        // Add active class to the specified floor number
+        const activeElement = document.querySelector(`.floor-number[data-floor="${floorNumber}"]`);
+        if (activeElement) {
+            activeElement.classList.add('active');
+        }
+
+        // Update the current floor and redraw the cabinets
+        curFloor = floorNumber;
+        while (map.firstChild) {
+            map.removeChild(map.lastChild);
+        }
+        drawCabinets(floorNumber);
+    }
+
+    function setActivePair(pairNumber) {
+        // Remove active class from all pair numbers
+        document.querySelectorAll('.pair-number').forEach(function(element) {
+            element.classList.remove('active');
+        });
+
+        // Add active class to the specified pair number
+        const activeElement = document.querySelector(`.pair-number[data-pair="${pairNumber}"]`);
+        if (activeElement) {
+            activeElement.classList.add('active');
+        }
+    }
+
+    // Set initial active floor and pair
+    setActiveFloor(1);
+    setActivePair(1);
+
+    // Event listener for floor numbers
+    document.querySelectorAll('.floor-number').forEach(function(element) {
+        element.addEventListener('click', function() {
+            const floorNumber = parseInt(this.getAttribute('data-floor'));
+            setActiveFloor(floorNumber);
         });
     });
-    changeFloor(1);
+
+    // Example interval for changing the active pair for demonstration
+    let currentPair = 1;
+    setInterval(() => {
+        setActivePair(currentPair);
+        currentPair = currentPair < 6 ? currentPair + 1 : 1;
+    }, 3000);
 });
 
-function changeFloor(floorNumber) {
-    var buttons = document.querySelectorAll('.floor-btn');
-    buttons.forEach(function(btn) {
-        btn.classList.remove('active'); // Убираем класс active у всех кнопок
-    });
-    var button = document.querySelector('.floor-btn[data-floor="' + floorNumber + '"]');
-    button.classList.add('active'); // Добавляем класс active к нажатой кнопке
-
-    while (map.firstChild) {
-        map.removeChild(map.lastChild);
-    }
-    drawCabinets(floorNumber);
-}
-
-
 window.addEventListener("resize", function() {
-    changeFloor(curFloor);
+    drawCabinets(curFloor);
 });

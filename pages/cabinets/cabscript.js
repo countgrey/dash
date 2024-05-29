@@ -45,10 +45,14 @@ async function drawCabinets(floor) {
 
         classrooms.forEach(function(classroom) {
             let curPara = 0;
-            // TODO: Get info about the current period
-            if (classroom.cabinet === dataClassrooms[curPara][0].classroom) {
-                classroom.groups = dataClassrooms[curPara][0].group;
+      classroom.groups = dataClassrooms[curPara][0].group;
+            classroom.teacher = "";
+            //TODO: Брать инфу о паре когда она идет
+            if(classroom.cabinet == dataClassrooms[curPara][0].classroom)
+            {
+                classroom.groups = [dataClassrooms[curPara][0].group];
                 classroom.students = dataClassrooms[curPara][0].present;
+                classroom.teacher = dataClassrooms[curPara][0].teacher;
             }
             const room = document.createElement('div');
             room.className = 'room';
@@ -63,7 +67,7 @@ async function drawCabinets(floor) {
                 room.classList.add('stream-room');
             }
             room.addEventListener('mouseover', function() {
-                tooltip.innerHTML = `Кабинет №${classroom.cabinet}<br>Тип: ${classroom.type}<br>Вместимость: ${classroom.capacity}<br>Сейчас в кабинете: ${classroom.students} студентов<br>Группы: ${classroom.groups.join(', ')}`;
+                tooltip.innerHTML = `Кабинет ${classroom.cabinet}<br>Тип: ${classroom.type}<br>Вместимость: ${classroom.capacity}<br>Сейчас в кабинете: ${classroom.students} студентов<br>Группы: ${classroom.groups.join(', ')}<br>Преподаватель: ${classroom.teacher}`;
                 tooltip.style.left = (classroom.location[0] + 40) + 'px';
                 tooltip.style.top = (classroom.location[1] - 20) + 'px';
                 tooltip.style.display = 'block';
@@ -76,8 +80,10 @@ async function drawCabinets(floor) {
     }
 
     function getColor(students, capacity) {
-        const percentage = (students / capacity) * 100;
-        if (percentage < 25) {
+        var percentage = (students / capacity) * 100;
+        if (percentage == 0) {
+          return 'gray';
+        } else if (percentage < 25) {
             return 'green';
         } else if (percentage < 50) {
             return 'lightgreen';

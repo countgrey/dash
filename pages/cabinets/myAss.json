@@ -1,43 +1,37 @@
 {
   "floor": [
       [
-          {"cabinet": 101, "location": [800, 550], "type": "Поточный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 102, "location": [700, 650], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 104, "location": [550, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 105, "location": [450, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 106, "location": [300, 550], "type": "Поточный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 107, "location": [450, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]}
+        {"cabinet" : 101, "location": [600, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 102, "location": [500, 450], "type": "Обычный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 104, "location": [370, 450], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 105, "location": [300, 350], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 106, "location": [170, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 107, "location": [300, 350], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []}
       ],
       [
-          {"cabinet": 201, "location": [650, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 202, "location": [650, 650], "type": "Поточный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 207, "location": [300, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 209, "location": [300, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 21, "location": [0, 0], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 22, "location": [0, 0], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 23, "location": [0, 0], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 25, "location": [0, 0], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 26, "location": [0, 0], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 27, "location": [0, 0], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]}
+        {"cabinet" : 201, "location": [900, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 202, "location": [200, 450], "type": "Обычный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 204, "location": [470, 450], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 205, "location": [600, 350], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 206, "location": [270, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 207, "location": [800, 350], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []}
       ],
       [
-          {"cabinet": 302, "location": [700, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 303, "location": [600, 650], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 304, "location": [500, 650], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 305, "location": [400, 650], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 306, "location": [300, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 308, "location": [300, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 311, "location": [500, 550], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 313, "location": [650, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]}
+        {"cabinet" : 301, "location": [900, 450], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 302, "location": [500, 550], "type": "Обычный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 304, "location": [470, 950], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 305, "location": [700, 450], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 306, "location": [970, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 307, "location": [300, 650], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []}
       ],
       [
-          {"cabinet": 402, "location": [650, 650], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 403, "location": [525, 650], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 404, "location": [420, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 405, "location": [300, 650], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 407, "location": [300, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 409, "location": [500, 550], "type": "Компьютерный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]},
-          {"cabinet": 410, "location": [650, 550], "type": "Обычный", "capacity": 30, "students": 15, "groups": ["3са3", "10бу5"]}
+        {"cabinet" : 401, "location": [100, 350], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 402, "location": [800, 350], "type": "Обычный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 404, "location": [370, 850], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 405, "location": [300, 250], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 406, "location": [170, 450], "type": "Поточный", "capacity": 30, "students": 0, "groups": []},
+        {"cabinet" : 407, "location": [300, 150], "type": "Компьютерный", "capacity": 30, "students": 0, "groups": []}
       ]
-  ]
+    ]
+    
 }

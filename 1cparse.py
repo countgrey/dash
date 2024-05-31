@@ -5,7 +5,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 # Сюда путь к бд
-CONSTR = 'File="C:\\Users\\admin\\Documents\\InfoBase2";Usr="Administrator";Pwd="qwe123"'
+CONSTR = 'File="C:\\Users\\champ\\Desktop\\InfoBase2";Usr="Administrator";Pwd="qwe123"'
 
 def database_fetch(querytxt):
     # Создать подключение

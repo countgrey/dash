@@ -32,7 +32,7 @@
 .room {
     max-width: 60px; /* Изменяем ширину комнаты на 8% от ширины экрана при ширине экрана до 768px */
     max-height: 60px; /* Также изменяем высоту комнаты */
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     position: absolute;
     display: flex;
     justify-content: center;
@@ -72,15 +72,11 @@
     }
     .stream-room {
         width: 16%;
-        height: 20%;
+        height: 10%;
     }
 }
 .computer-room {
     border-color: blue;
-}
-.stream-room {
-    max-width: 100px;
-    max-height: 140px;
 }
 
 .tooltip {

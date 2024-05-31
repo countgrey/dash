@@ -22,7 +22,7 @@ async function drawCabinets(floor) {
 
     if (dataClassrooms === undefined) {
         console.log("loading more things");
-        dataClassrooms = await LoadMoreCabinetsData();
+        //dataClassrooms = await LoadMoreCabinetsData();
     }
 
     let classrooms = classrooms_[floor - 1];
@@ -45,21 +45,30 @@ async function drawCabinets(floor) {
 
         classrooms.forEach(function(classroom) {
             let curPara = 0;
-      classroom.groups = dataClassrooms[curPara][0].group;
+            /*
+            classroom.groups = dataClassrooms[curPara][0].group;
             classroom.teacher = "";
             //TODO: Брать инфу о паре когда она идет
             if(classroom.cabinet == dataClassrooms[curPara][0].classroom)
             {
-                classroom.groups = [dataClassrooms[curPara][0].group];
+                classroom.groups = dataClassrooms[curPara][0].group];
                 classroom.students = dataClassrooms[curPara][0].present;
                 classroom.teacher = dataClassrooms[curPara][0].teacher;
             }
+            */
             const room = document.createElement('div');
             room.className = 'room';
             room.style.left = (classroom.location[0] * neededWidth) + 'px';
             room.style.top = (classroom.location[1] * neededHeight) + 'px';
-            room.style.backgroundColor = getColor(classroom.students, classroom.capacity);
+            room.style.backgroundColor = getColor(classroom.students, classroom.capacity, 0.2);
             room.innerText = classroom.cabinet;
+
+            room.style.maxWidth = classroom.size[0] + 'px';
+            room.style.maxHeight = classroom.size[1] + 'px';
+
+            room.style.width = classroom.size[0] + 'px';
+            room.style.height = classroom.size[1] + 'px';
+
             if (classroom.type === 'Компьютерный') {
                 room.classList.add('computer-room');
             }
@@ -71,28 +80,30 @@ async function drawCabinets(floor) {
                 tooltip.style.left = (classroom.location[0] + 40) + 'px';
                 tooltip.style.top = (classroom.location[1] - 20) + 'px';
                 tooltip.style.display = 'block';
+                room.style.backgroundColor = getColor(classroom.students, classroom.capacity, 0.8);
             });
             room.addEventListener('mouseout', function() {
                 tooltip.style.display = 'none';
+                room.style.backgroundColor = getColor(classroom.students, classroom.capacity, 0.2);
             });
             map.appendChild(room);
         });
     }
 
-    function getColor(students, capacity) {
+    function getColor(students, capacity, opacity) {
         var percentage = (students / capacity) * 100;
         if (percentage == 0) {
-          return 'gray';
+          return "rgba(0.0078125, 0.0078125, 0.0078125," + opacity + ")"; //grey
         } else if (percentage < 25) {
-            return 'green';
+            return "rgba(0, 0.0078125, 0," + opacity + ")"; //green
         } else if (percentage < 50) {
-            return 'lightgreen';
+            return "rgba(0.0069444444444444, 0.0042016806722689, 0.0069444444444444," + opacity + ")"; //light green
         } else if (percentage < 75) {
-            return 'yellow';
+            return "rgba(1, 1, 0," + opacity + ")"; //yellow
         } else if (percentage < 90) {
-            return 'orange';
+            return "rgba(1, 0.0060606060606061, 0," + opacity + ")"; //orange
         } else {
-            return 'red';
+            return "rgba(1, 0, 0," + opacity + ")"; //red
         }
     }
 }
@@ -154,5 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener("resize", function() {
+    while (map.firstChild) {
+        map.removeChild(map.lastChild);
+    }
     drawCabinets(curFloor);
 });

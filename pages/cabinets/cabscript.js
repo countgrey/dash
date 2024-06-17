@@ -1,6 +1,7 @@
 let classrooms_ = void 0;
 let dataClassrooms = void 0;
 let curFloor = 1;
+document.getElementById("bg-image").src = "/floors/" + curFloor + " floor.png";
 
 async function LoadMoreCabinetsData() {
     const url = 'http://localhost:5000/getClassroomsData';
@@ -145,13 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Set initial active floor and pair
-    setActiveFloor(1);
-    setActivePair(1);
+    setActiveFloor(curFloor);
+    setActivePair(curFloor);
 
     // Event listener for floor numbers
     document.querySelectorAll('.floor-number').forEach(function(element) {
         element.addEventListener('click', function() {
             const floorNumber = parseInt(this.getAttribute('data-floor'));
+            document.getElementById("bg-image").src = "/floors/" + floorNumber + " floor.png";
             setActiveFloor(floorNumber);
         });
     });

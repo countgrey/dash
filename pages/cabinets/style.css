@@ -39,7 +39,7 @@
     align-items: center;
     font-size: 14px;
     border-radius: 5px;
-    color: black;
+    color: rgb(206, 206, 206);
     cursor: pointer; /* Добавляем указатель при наведении */
 }
 
